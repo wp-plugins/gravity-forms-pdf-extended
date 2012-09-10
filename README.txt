@@ -48,7 +48,7 @@ Make sure you use an absolute path to the file e.g. http://www.your-site.com/my-
 Copy the *pdf-print-entry.php* file (located in the plugin directory) and pass the new template name to the PDF_Generator() function inside the gform_pdf_create() function. 
 
 = I want users to be able to download the PDF from the server. = 
-By deleting the .htaccess file in the 'output' folder you’ll be able to access the PDFs through a web browser. Use the get_pdf_filename() function to get the PDF's name. 
+By deleting the .htaccess file in the 'output' folder you'll be able to access the PDFs through a web browser. Use the get_pdf_filename() function to get the PDF's name. 
 
 == Screenshots ==
 
