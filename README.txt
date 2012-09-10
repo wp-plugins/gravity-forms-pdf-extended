@@ -12,7 +12,7 @@ Gravity Forms PDF Extended allows you to save/view/download a PDF from the front
 
 == Description ==
 
-Expanding on the good work of 'rposborne', who created the original [Gravity Forms PDF Plugin](http://wordpress.org/extend/plugins/gravity-forms-pdf/), the extended version overhauls the rendering process so that developers now have more control over the creation of PDFs.
+Expanding on the good work of 'rposborne', who created the original [Gravity Forms PDF Plugin](http://wordpress.org/extend/plugins/gravity-forms-pdf/), the extended version overhauls the rendering process so developers have more control over the creation of PDFs.
 
 **Features**
 
@@ -26,7 +26,7 @@ Expanding on the good work of 'rposborne', who created the original [Gravity For
 [Head to Blue Liquid Designs](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/) - the developer of the extended Gravity Forms PDF plugin - and view everything you need to know installing, configuring and using the plugin.
 
 **Demo**
-[See the Gravity Forms PDF Extended Plugin it in action](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/#gf-demo). 
+[See the Gravity Forms PDF Extended Plugin in action](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/#gf-demo). 
 
 == Installation ==
 
