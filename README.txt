@@ -27,7 +27,6 @@ Expanding on the good work of 'rposborne', who created the original [Gravity For
 [Head to Blue Liquid Designs](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/) - the developer of the extended Gravity Forms PDF plugin - and view everything you need to know installing, configuring and using the plugin.
 
 **Demo**
-
 You can see it in action [on the Blue Liquid Designs website](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/#gf-demo). 
 
 == Installation ==
@@ -37,7 +36,7 @@ This section describes how to install the plugin and get it working.
 1. Upload this plugin to your website and activate it
 2. Modify the PDF template file, pdf-print-entry.php, inside the gravity-forms-pdf-extended plugin folder to suit your requirements. 
 3. Create a form you want to PDF and configure notifications
-4. To create the PDF on the fly and add as an email attachment read the tutorial: http://blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
+4. To create the PDF on the fly and add as an email attachment read the documentation: http://blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
 
 == Frequently Asked Questions ==
 
