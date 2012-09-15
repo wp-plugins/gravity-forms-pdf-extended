@@ -57,9 +57,9 @@ function gf_not_installed()
 	/* Check that the user hasn't already clicked to ignore the message */
     if ( ! get_user_meta($user_id, 'gfpdfe_ignore_notice') ) {
 		// Shows as an error message. You could add a link to the right page if you wanted.
-		echo '<div id="message" class="error">';
+		echo '<div id="message" class="error"><p>';
 		printf(__('You need to install <a href="http://www.gravityforms.com/">Gravity Forms</a> to use the Gravity Forms PDF Extended Plugin. | <a href="%1$s">Hide Notice</a>'), '?gfpdfe_nag_ignore=1');
-		echo '</div>';
+		echo '</p></div>';
 	}
 }
 
@@ -75,24 +75,6 @@ function gfpdfe_nag_ignore() {
           add_user_meta($user_id, 'gfpdfe_ignore_notice', 'true', true);
     }
 }
-
-
-/*class GFPDFExtended
-{
-	public function __construct() {
-		add_action('init',  array(&$this, 'init'), 9);	
-	}
-	
-	public function init()
-	{
-		if(!self::is_gravityforms_installed()){
-		   add_action('admin_notices', array(&$this, 'gf_not_installed'), 9);     				
-        }	
-	}
-}*/
-
-
-
 
 //Link for Entry Detail View (Provide both View Link and Download)
 function detail_pdf_link($form_id, $lead) {
@@ -127,6 +109,7 @@ function process_exterior_pages(){
   }
   exit();
 }
+
 
 
 ?>
