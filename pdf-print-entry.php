@@ -54,9 +54,7 @@ $form = RGFormsModel::get_form_meta($form_id);
     </head>
 	<body>
 
-	<div id="print_preview_hdr" style="display:none">
-		    <div><span class="actionlinks"><a href="javascript:;" onclick="window.print();" class="header-print-link">print this page</a> | <a href="javascript:window.close()" class="close_window"><?php _e("close window", "gravityforms") ?></a></span><?php _e("Print Preview", "gravityforms") ?></div>
-	    </div>
+	<div id="print_preview_hdr" style="display:none"></div>
         
         
 		<div id="view-container">
@@ -64,7 +62,7 @@ $form = RGFormsModel::get_form_meta($form_id);
         <?php
 		/* Add image and copy above here to show before the entry details */
 
-        require_once(GFCommon::get_base_path() . "/entry_detail.php");
+        require_once(ABSPATH. "wp-content/plugins/gravity-forms-pdf-extended/pdf-entry-detail.php");
 
         foreach($lead_ids as $lead_id){
 

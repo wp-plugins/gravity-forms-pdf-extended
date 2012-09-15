@@ -1,1 +1,9 @@
 /* Put your PDF stylesheet details here */
+
+td.entry-view-field-value {
+padding-left: 9px;	
+}
+
+.even {
+background: #EAF2FA;	
+}

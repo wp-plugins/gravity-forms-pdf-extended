@@ -4,7 +4,7 @@
 Plugin Name: Gravity Forms PDF Extended
 Plugin URI: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
 Description: Renders PDFs so they can be easily attached to notifications, viewed and downloaded.
-Version: 1.0.0
+Version: 1.1.0
 Author: Blue Liquid Designs
 Author URI: http://www.blueliquiddesigns.com.au
 
@@ -30,6 +30,69 @@ GNU General Public License for more details.
 add_action('gform_entries_first_column_actions', 'pdf_link', 10, 4);
 add_action("gform_entry_info", "detail_pdf_link", 10, 2);
 add_action('wp',   'process_exterior_pages');
+
+
+add_action('admin_init',  'gfe_init', 9);
+/**
+ * Check to see if Gravity Forms is actually installed
+ */
+function gfe_init()
+{
+	if(!class_exists("RGForms"))
+	{
+		/* throw error to the admin notice bar */
+		add_action('admin_notices', 'gf_not_installed'); 	
+	}
+}
+
+/**
+ * Gravity Forms hasn't been installed so throw error.
+ * We make sure the user hasn't already dismissed the error
+ */
+function gf_not_installed()
+{
+	global $current_user;
+    $user_id = $current_user->ID;
+    
+	/* Check that the user hasn't already clicked to ignore the message */
+    if ( ! get_user_meta($user_id, 'gfpdfe_ignore_notice') ) {
+		// Shows as an error message. You could add a link to the right page if you wanted.
+		echo '<div id="message" class="error">';
+		printf(__('You need to install <a href="http://www.gravityforms.com/">Gravity Forms</a> to use the Gravity Forms PDF Extended Plugin. | <a href="%1$s">Hide Notice</a>'), '?gfpdfe_nag_ignore=1');
+		echo '</div>';
+	}
+}
+
+/**
+ * Gravity Forms hasn't been installed and user is dismissing the error thrown
+ */
+add_action('admin_init', 'gfpdfe_nag_ignore');
+function gfpdfe_nag_ignore() {
+    global $current_user;
+    $user_id = $current_user->ID;
+    /* If user clicks to ignore the notice, add that to their user meta */
+    if ( isset($_GET['gfpdfe_nag_ignore']) && $_GET['gfpdfe_nag_ignore'] == 1 ) {
+          add_user_meta($user_id, 'gfpdfe_ignore_notice', 'true', true);
+    }
+}
+
+
+/*class GFPDFExtended
+{
+	public function __construct() {
+		add_action('init',  array(&$this, 'init'), 9);	
+	}
+	
+	public function init()
+	{
+		if(!self::is_gravityforms_installed()){
+		   add_action('admin_notices', array(&$this, 'gf_not_installed'), 9);     				
+        }	
+	}
+}*/
+
+
+
 
 //Link for Entry Detail View (Provide both View Link and Download)
 function detail_pdf_link($form_id, $lead) {
@@ -64,4 +127,6 @@ function process_exterior_pages(){
   }
   exit();
 }
+
+
 ?>
