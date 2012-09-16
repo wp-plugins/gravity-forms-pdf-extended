@@ -3,7 +3,7 @@ Contributors: blueliquiddesigns
 Donate link: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4.0
-Tested up to: 3.4.2
+Tested up to: 3.4.3
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -67,3 +67,8 @@ By deleting the .htaccess file in the 'output' folder you'll be able to access t
 
 = 1.0.0 =
 * First release. 
+
+== Upgrade Notice ==
+
+= 1.1.0 =
+Compatible with Gravity Forms Signature Add-On, numerous bug fixes and more control over template.
