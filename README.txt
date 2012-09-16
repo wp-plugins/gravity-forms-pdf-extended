@@ -2,7 +2,7 @@
 Contributors: blueliquiddesigns
 Donate link: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
 Tags: gravity, forms, pdf, automation, attachment
-Requires at least: 3.4.1
+Requires at least: 3.4.0
 Tested up to: 3.4.2
 Stable tag: 1.1.0
 License: GPLv2 or later
