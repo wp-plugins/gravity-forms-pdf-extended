@@ -8,8 +8,7 @@ Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Gravity Forms PDF Extended allows you to save/view/download a PDF from the front- and back-end, and automate PDF creation on form submission. 
-Note: If you're upgrading, backup your plugin files beforehand as your custom template will be overridden.
+Gravity Forms PDF Extended allows you to save/view/download a PDF from the front- and back-end, and automate PDF creation on form submission.
 
 == Description ==
 
