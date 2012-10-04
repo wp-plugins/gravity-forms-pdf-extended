@@ -25,7 +25,7 @@ define('PDF_SAVE_LOCATION', dirname(__FILE__)."/output/");
  if (!function_exists('PDF_Generator')) {
 	function PDF_Generator($form_id, $lead_id, $output = 'view', $return = false, $template = 'pdf-print-entry.php')
 	{
-		$filename = get_pdf_filename($form_id, $lead_id);
+		$filename = get_pdf_filename($form_id, $lead_id); 
 		$entry = load_entry_data($form_id, $lead_id, $template);	
 		PDF_processing($entry, $filename, $output);
 		/* return the filename so we can use it */
@@ -55,7 +55,7 @@ define('PDF_SAVE_LOCATION', dirname(__FILE__)."/output/");
 		/* set up contstants for gravity forms to use so we can override the security on the printed version */
 		define('GF_FORM_ID', $form_id);
 		define('GF_LEAD_ID', $lead_id);	
-		return GetRequire(dirname(__FILE__)."/" . $template);
+		return GetRequire(dirname(__FILE__)."/templates/" . $template);
 	}
  }
 

@@ -7,3 +7,12 @@ padding-left: 9px;
 .even {
 background: #EAF2FA;	
 }
+
+.body_copy {
+padding-top: 50px;	
+}
+
+.pdf_logo_area {
+text-align: center;
+margin: 0 auto;
+}

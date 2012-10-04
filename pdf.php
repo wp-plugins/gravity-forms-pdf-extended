@@ -4,7 +4,7 @@
 Plugin Name: Gravity Forms PDF Extended
 Plugin URI: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
 Description: Renders PDFs so they can be easily attached to notifications, viewed and downloaded.
-Version: 1.1.0
+Version: 1.2.0
 Author: Blue Liquid Designs
 Author URI: http://www.blueliquiddesigns.com.au
 
@@ -30,19 +30,67 @@ GNU General Public License for more details.
 add_action('gform_entries_first_column_actions', 'pdf_link', 10, 4);
 add_action("gform_entry_info", "detail_pdf_link", 10, 2);
 add_action('wp',   'process_exterior_pages');
+register_activation_hook( __FILE__, 'pdf_extended_activate' );
 
 
-add_action('admin_init',  'gfe_init', 9);
+add_action('admin_init',  'gfe_admin_init', 9);
+add_action("gform_entry_created", "gform_pdf_example_create", 10, 2);
+add_filter("gform_admin_notification_attachments", 'gform_add_example_attachment', 10, 3);
+
+
+/*
+ * Generate our Sample PDF for our Sample Form   
+ */
+function gform_pdf_example_create($entry, $form)
+{
+	$user_id = $entry['id'];
+	$form_id = $entry['form_id'];
+		
+	if($form['title'] == 'Gravity Forms PDF Extended Custom Template Sample')
+	{
+		/* include the pdf processing file */
+		require ABSPATH. 'wp-content/plugins/gravity-forms-pdf-extended/render_to_pdf.php';
+                /* generate and save the PDF file*/
+		$filename = PDF_Generator($form_id, $user_id, 'save', true, 'example-template.php');	
+	}
+}
+
+/* Emails our sample PDF to the site administrator */
+function gform_add_example_attachment($attachments, $lead, $form){
+ 
+	$form_id = $lead['form_id'];
+	$user_id = $lead['id'];
+	$attachments = array();
+ 
+	if($form['title'] == 'Gravity Forms PDF Extended Custom Template Sample')
+	{
+		/* include PDF converter plugin */
+		include ABSPATH. 'wp-content/plugins/gravity-forms-pdf-extended/render_to_pdf.php';
+		$attachment_file = PDF_SAVE_LOCATION. get_pdf_filename($form_id, $user_id);
+		$attachments[] = $attachment_file;
+	}
+ 
+    return $attachments;
+}
+
 /**
  * Check to see if Gravity Forms is actually installed
  */
-function gfe_init()
+function gfe_admin_init()
 {
 	if(!class_exists("RGForms"))
 	{
 		/* throw error to the admin notice bar */
 		add_action('admin_notices', 'gf_not_installed'); 	
 	}
+}
+
+/**
+ * Install an example form to show off the new template system
+ */
+function pdf_extended_activate()
+{
+	GFExport::import_file(ABSPATH .'/wp-content/plugins/gravity-forms-pdf-extended/example-form.xml');
 }
 
 /**
@@ -80,23 +128,33 @@ function gfpdfe_nag_ignore() {
 function detail_pdf_link($form_id, $lead) {
   $lead_id = $lead['id'];
   echo "PDF:  ";
-  echo "<a href=\"javascript:;\" onclick=\"var notes_qs = jQuery('#gform_print_notes').is(':checked') ? '&notes=1' : ''; var url='".site_url()."/?gf_pdf=print-entry&fid=".$form_id."&lid=".$lead_id."' + notes_qs; window.open (url,'printwindow');\" class=\"button\"> View</a>";
-  echo " <a href=\"javascript:;\" onclick=\"var notes_qs = jQuery('#gform_print_notes').is(':checked') ? '&notes=1' : ''; var url='".site_url()."/?gf_pdf=print-entry&download=1&fid=".$form_id."&lid=".$lead_id."' + notes_qs; window.open (url,'printwindow');\" class=\"button\"> Download</a>";
+  echo "<a href=\"javascript:;\" onclick=\"var notes_qs = jQuery('#gform_print_notes').is(':checked') ? '&notes=1' : ''; var url='".home_url()."/?gf_pdf=print-entry&fid=".$form_id."&lid=".$lead_id."' + notes_qs; window.open (url,'printwindow');\" class=\"button\"> View</a>";
+  echo " <a href=\"javascript:;\" onclick=\"var notes_qs = jQuery('#gform_print_notes').is(':checked') ? '&notes=1' : ''; var url='".home_url()."/?gf_pdf=print-entry&download=1&fid=".$form_id."&lid=".$lead_id."' + notes_qs; window.open (url,'printwindow');\" class=\"button\"> Download</a>";
 }
 
 // Made this first... figured i would leave it in.  View link on the Entry list view. 
 function pdf_link($form_id, $field_id, $value, $lead) {
   $lead_id = $lead['id'];
-  echo "| <a href=\"javascript:;\" onclick=\"var notes_qs = '&notes=1'; var url='".site_url()."/?gf_pdf=print-entry&fid=".$form_id."&lid=".$lead_id."' + notes_qs; window.open (url,'printwindow');\"> View PDF</a>";
+  echo "| <a href=\"javascript:;\" onclick=\"var notes_qs = '&notes=1'; var url='".home_url()."/?gf_pdf=print-entry&fid=".$form_id."&lid=".$lead_id."' + notes_qs; window.open (url,'printwindow');\"> View PDF</a>";
 }
 
 //Handle Incoming route.   Look for GF_PDF namespace 
 function process_exterior_pages(){
+  global $wpdb;
+  
   if(rgempty("gf_pdf", $_GET))
     return;
     
+	$form_id = $_GET['fid'];
+	$lead_id = $_GET['lid'];
+	$ip = $_GET['ip'];
+	$template = (rgempty('template', $_GET)) ? 'pdf-print-entry.php' : rgget('template');
+	
+	/* check the lead is in the database and the IP address matches (little security booster) */
+	$form_entries = $wpdb->get_var( $wpdb->prepare("SELECT count(*) FROM `".$wpdb->prefix."rg_lead` WHERE form_id = ".$form_id." AND status = 'active' AND id = ".$lead_id." AND ip = '".$ip."'" ) )	;	
+
   //ensure users are logged in
-  if(!is_user_logged_in())
+  if(!is_user_logged_in() && !rgempty('template', $_GET) && $form_entries == 0)
     auth_redirect();
 
   switch(rgget("gf_pdf")){
@@ -104,7 +162,7 @@ function process_exterior_pages(){
     require_once("render_to_pdf.php");
 	/* call the creation class */
 	$output = ($_GET['download'] == 1) ? 'download' : 'view';
-	PDF_Generator((int) $_GET['fid'], (int) $_GET['lid'], $output);
+	PDF_Generator((int) $_GET['fid'], (int) $_GET['lid'], $output, false, $template);
     break;
   }
   exit();
