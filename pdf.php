@@ -86,7 +86,7 @@ function gfe_admin_init()
 	
 	if(get_option('gf_pdf_extended_sample') != 'installed')
 	{
-		pdf_extended_active();
+		pdf_extended_activate();
 	}
 }
 
