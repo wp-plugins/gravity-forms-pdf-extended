@@ -29,7 +29,6 @@ Expanding on the good work of 'rposborne', who created the original [Gravity For
 [Head to Blue Liquid Designs](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/) - the developer of the extended Gravity Forms PDF plugin - and view everything you need to know installing, configuring and using the plugin.
 
 **Demo**
-
 You can see it in action [on the Blue Liquid Designs website](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/#tab-demo). 
 
 == Installation ==
