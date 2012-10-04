@@ -87,7 +87,6 @@ function gfe_admin_init()
 	if(get_option('gf_pdf_extended_sample') != 'installed')
 	{
 		pdf_extended_active();
-		update_option('gf_pdf_extended_sample', 'installed');
 	}
 }
 
@@ -97,6 +96,7 @@ function gfe_admin_init()
 function pdf_extended_activate()
 {
 	GFExport::import_file(ABSPATH .'/wp-content/plugins/gravity-forms-pdf-extended/example-form.xml');
+	update_option('gf_pdf_extended_sample', 'installed');
 }
 
 /**
