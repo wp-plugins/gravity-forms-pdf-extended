@@ -62,6 +62,8 @@ By deleting the .htaccess file in the 'output' folder you'll be able to access t
 
 == Changelog ==
 
+Remember to always make a backup of your plugin before upgrading otherwise you'll loose your custom PDF template file.
+
 = 1.2.0 =
 * Template files moved to the plugin's template folder
 * Sample Form installed so developers have a working example to modify
