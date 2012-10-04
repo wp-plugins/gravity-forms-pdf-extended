@@ -83,6 +83,12 @@ function gfe_admin_init()
 		/* throw error to the admin notice bar */
 		add_action('admin_notices', 'gf_not_installed'); 	
 	}
+	
+	if(get_option('gf_pdf_extended_sample') != 'installed')
+	{
+		pdf_extended_active();
+		update_option('gf_pdf_extended_sample', 'installed');
+	}
 }
 
 /**
