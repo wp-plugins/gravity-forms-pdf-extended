@@ -81,6 +81,16 @@ class Image_Cache {
             $image = file_get_contents($full_url);
             restore_error_handler();
           }
+		  
+		  if(strlen($image) == 0) {
+				/* try one last technique to display images */
+				if( !class_exists( 'WP_Http' ) ) {
+					include_once( ABSPATH . WPINC. '/class-http.php' );
+				}
+				$request = new WP_Http();
+				$result = $request->request($full_url);
+				$image = $result['body'];
+		  }
   
           // Image not found or invalid
           if ( strlen($image) == 0 ) {

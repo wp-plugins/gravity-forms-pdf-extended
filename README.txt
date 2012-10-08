@@ -4,7 +4,7 @@ Donate link: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-ext
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4.1
 Tested up to: 3.4.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,11 @@ By deleting the .htaccess file in the 'output' folder you'll be able to access t
 
 Remember to always make a backup of your plugin before upgrading otherwise you'll loose your custom PDF template file.
 
+= 1.2.2 =
+* Fixed bug with tempalte shipping method MERGETAGS
+* Fixed bug where attachment wasn't being sent
+* Fixed problem when all_url_fopen was turned off on server and failed to retreive remote images. Now uses WP_HTTP class.
+
 = 1.2.1 =
 * Fixed path to custom css file included in PDF template 
 
@@ -79,3 +84,8 @@ Remember to always make a backup of your plugin before upgrading otherwise you'l
 
 = 1.0.0 =
 * First release. 
+
+== Upgrade Notice ==
+
+= 1.2.2 =
+A number of bug fixes with the new MERGETAGS style template. **Note: Backup template files before upgrade as they will be deleted by Wordpress during the update process.**

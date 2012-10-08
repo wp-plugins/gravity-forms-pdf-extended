@@ -370,10 +370,10 @@ class GFEntryDetail{
 						foreach($products["products"] as $product){
 							$form_array['products'][] = array(
 									'name' => esc_html($product['name']), 
-									'price' => esc_html($product["name"]), 
+									'price' => esc_html($product['price']), 
 									'options' => $product['options'], 
 									'quantity' => $product["quantity"], 
-									'shipping' => $products['shopping']);
+									'shipping' => $products['shipping']);
 						}
 					}
 				}
