@@ -31,6 +31,9 @@ Expanding on the good work of 'rposborne', who created the original [Gravity For
 **Demo**
 You can see it in action [on the Blue Liquid Designs website](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/#tab-demo). 
 
+**Haven't purchased Gravity Forms yet?**
+By purchasing a Gravity Forms Developer License through Blue Liquid Designs you'll get a 60% discount off the retail price. That's only $80 Australian Dollars and it includes all the premium Gravity Forms features like Paypal integration, the Signature and User Registration Add-On. [Click here to find out more](http://www.blueliquiddesigns.com.au/index.php/articles/gravity-forms-developers-license/).
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.
