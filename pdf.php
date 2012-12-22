@@ -156,7 +156,7 @@ function process_exterior_pages(){
 	$template = (rgempty('template', $_GET)) ? 'pdf-print-entry.php' : rgget('template');
 	
 	/* check the lead is in the database and the IP address matches (little security booster) */
-	$form_entries = $wpdb->get_var( $wpdb->prepare("SELECT count(*) FROM `".$wpdb->prefix."rg_lead` WHERE form_id = ".$form_id." AND status = 'active' AND id = ".$lead_id." AND ip = '".$ip."'" ) )	;	
+	$form_entries = $wpdb->get_var( $wpdb->prepare("SELECT count(*) FROM `".$wpdb->prefix."rg_lead` WHERE form_id = ".$form_id." AND status = 'active' AND id = ".$lead_id." AND ip = '".$ip."'", array() ) )	;	
 
   //ensure users are logged in
   if(!is_user_logged_in() && !rgempty('template', $_GET) && $form_entries == 0)
