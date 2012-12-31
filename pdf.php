@@ -4,7 +4,7 @@
 Plugin Name: Gravity Forms PDF Extended
 Plugin URI: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
 Description: Gravity Forms PDF Extended allows you to save/view/download a PDF from the front- and back-end, and automate PDF creation on form submission. Note: If you're upgrading, backup your plugin files beforehand as your custom template will be overridden.
-Version: 1.2.2
+Version: 1.2.3
 Author: Blue Liquid Designs
 Author URI: http://www.blueliquiddesigns.com.au
 
