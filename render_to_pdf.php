@@ -11,10 +11,7 @@ if (!function_exists('GetRequire')) {
 	}
 }
 
-if(!defined('PDF_SAVE_LOCATION'))
-{
-	define('PDF_SAVE_LOCATION', dirname(__FILE__)."/output/");
-}
+define('PDF_SAVE_LOCATION', dirname(__FILE__)."/output/");
 
 /**
  * Outputs a PDF entry from a Gravity Form

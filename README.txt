@@ -3,8 +3,8 @@ Contributors: blueliquiddesigns
 Donate link: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4.1
-Tested up to: 3.4.1
-Stable tag: 1.2.2
+Tested up to: 3.5
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,9 @@ By deleting the .htaccess file in the 'output' folder you'll be able to access t
 == Changelog ==
 
 Remember to always make a backup of your plugin before upgrading otherwise you'll loose your custom PDF template file.
+
+= 1.2.3 =
+* Fixed $wpdb->prepare error
 
 = 1.2.2 =
 * Fixed bug with tempalte shipping method MERGETAGS
