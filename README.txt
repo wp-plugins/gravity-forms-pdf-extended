@@ -28,13 +28,13 @@ At its core the plugin uses the power of the DOMPDF library to convert HTML and 
 * Works with Gravity Forms Signature Add-On
 * Installs a sample form using the new MERGETAGS-style template to help customisation
 
-** Server Requirements **
+**Server Requirements**
 1. PHP 5.0+ (5.3 recommended)
 2. MBString extension
 3. DOM extension (bundled with PHP 5)
 4. If you want images in your PDF you'll also need the GD Library
 
-** Software Requirements **
+**Software Requirements**
 
 1. [Purchase and install Gravity Forms](https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=235154)
 2. Wordpress 3.0+
