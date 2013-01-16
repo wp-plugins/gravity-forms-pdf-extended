@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: blueliquiddesigns
-Donate link: http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
+Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4.1
 Tested up to: 3.5
-Stable tag: 1.2.3
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,59 +12,65 @@ Gravity Forms PDF Extended allows you to save/view/download a PDF from the front
 
 == Description ==
 
-Expanding on the good work of 'rposborne', who created the original [Gravity Forms PDF Plugin](http://wordpress.org/extend/plugins/gravity-forms-pdf/), the extended version overhauls the rendering process so that developers now have more control over the creation of PDFs.
+Gravity Forms PDF Extended is a plugin for Wordpress and Gravity Forms that allows your web server to create PDFs when a user submits a Gravity Form. Not only that, you can then easily attach the document to an email.
+
+At its core the plugin uses the power of the DOMPDF library to convert HTML and CSS into PDFs.
 
 **Features**
 
 * Save PDF File on user submission of a Gravity Form so it can be attached to a notification
 * Customise the PDF template without affecting the core Gravity Form Plugin
 * Multiple PDF Templates
+* Custom PDF Name
 * Output individual form fields in the template - like MERGETAGS.
 * View and download a PDF via the administrator interface
 * Simple function to output PDF via template / plugin
 * Works with Gravity Forms Signature Add-On
-* Installs a sample form using the new MERGETAGS-style template to help the setup
+* Installs a sample form using the new MERGETAGS-style template to help customisation
 
-**Tutorial**
-[Head to Blue Liquid Designs](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/) - the developer of the extended Gravity Forms PDF plugin - and view everything you need to know installing, configuring and using the plugin.
+** Server Requirements **
+1. PHP 5.0+ (5.3 recommended)
+2. MBString extension
+3. DOM extension (bundled with PHP 5)
+4. If you want images in your PDF you'll also need the GD Library
 
-**Demo**
-You can see it in action [on the Blue Liquid Designs website](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/#tab-demo). 
+** Software Requirements **
 
-**Haven't purchased Gravity Forms yet?**
-By purchasing a Gravity Forms Developer License through Blue Liquid Designs you'll get a 60% discount off the retail price. That's only $80 Australian Dollars and it includes all the premium Gravity Forms features like Paypal integration, the Signature and User Registration Add-On. [Click here to find out more](http://www.blueliquiddesigns.com.au/index.php/articles/gravity-forms-developers-license/).
+1. [Purchase and install Gravity Forms](https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=235154)
+2. Wordpress 3.0+
+3. Gravity Forms 1.6.9+
+
+**Documentation and Support**
+To view the Development Documentation head to [http://www.gravityformspdfextended.com/documentation/](http://www.gravityformspdfextended.com/documentation/). If you need support with the plugin please post a topic in our [support forums](http://gravityformspdfextended.com/support/gravity-forms-pdf-extended/).
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
 1. Upload this plugin to your website and activate it
-2. Modify the PDF template file, pdf-print-entry.php, inside the gravity-forms-pdf-extended plugin folder to suit your requirements. 
-3. Create a form you want to PDF and configure notifications
-4. To create the PDF on the fly and add as an email attachment read the tutorial: http://blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/
+2. Create a form in Gravity Forms and configure notifications
+3. Get the Form ID and follow the steps below in [the configuration section](http://gravityformspdfextended.com/documentation/2.0.0/1/configuration/)
+4. Modify the PDF template file ([see the advanced templating section in the documentation](http://gravityformspdfextended.com/documentation/2.0.0/9/advanced-configuration/)), pdf-print-entry.php or example-template.php, inside your active theme's PDF_EXTENDED_TEMPLATES/ folder.
+
 
 == Frequently Asked Questions ==
 
-= I get the error message: Fatal error: Call to undefined method DOMText::getAttribute() on line ###. =
-This is generally caused by invalid HTML. [See The Template section](http://www.blueliquiddesigns.com.au/index.php/gravity-forms-pdf-extended-plugin/#gf-the-template) for an easy method to debug the issue.
-
-= I added an image to the template file and got the error 'Image not readable or empty'. = 
-Make sure you use an absolute path to the file e.g. http://www.your-site.com/my-image.jpg. Also, check that the 'temp' folder in ../gravity-forms-pdf-extended/dompdf/ is writable by your web server.
-
-= I want to have multiple PDF template files. = 
-Copy the *pdf-print-entry.php* file (located in the plugin directory) and pass the new template name to the PDF_Generator() function inside the gform_pdf_create() function. 
-
-= I want users to be able to download the PDF from the server. = 
-By deleting the .htaccess file in the 'output' folder you'll be able to access the PDFs through a web browser. Use the get_pdf_filename() function to get the PDF's name. 
+All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravityformspdfextended.com/faq/category/developers/).  
 
 == Screenshots ==
 
-1. View PDF From the Form List
-2. View or download the PDF from a form entry.
+1. View PDF from the Gravity Forms entries list.
+2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
 
-Remember to always make a backup of your plugin before upgrading otherwise you'll loose your custom PDF template file.
+= 2.0.0 =
+* Moved templates to active theme folder to prevent custom themes being removed on upgrade
+* Allow PDFs to be saved using a custom name
+* Fixed WP_Error bug when image/css file cannot be found
+* Upgraded to latest version of DOMPDF
+* Removed auto-load form bug which would see multiple instances of the example form loaded
+* Created a number of constants to allow easier developer modification
+* Plugin/Support moved to dedicated website.
+* Pro/Business package offers the ability to write fields on an existing PDF.
 
 = 1.2.3 =
 * Fixed $wpdb->prepare error
@@ -93,5 +99,5 @@ Remember to always make a backup of your plugin before upgrading otherwise you'l
 
 == Upgrade Notice ==
 
-= 1.2.2 =
-A number of bug fixes with the new MERGETAGS style template. **Note: Backup template files before upgrade as they will be deleted by Wordpress during the update process.**
+= 2.0.0 =
+New Features: Added custom PDF names and moved templates to active theme's folder (no longer overridden after updating). Also fixed a number of bugs in the problem. Remember to backup your custom templates before upgrading! 
