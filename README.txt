@@ -29,6 +29,7 @@ At its core the plugin uses the power of the DOMPDF library to convert HTML and 
 * Installs a sample form using the new MERGETAGS-style template to help customisation
 
 **Server Requirements**
+
 1. PHP 5.0+ (5.3 recommended)
 2. MBString extension
 3. DOM extension (bundled with PHP 5)
@@ -41,6 +42,7 @@ At its core the plugin uses the power of the DOMPDF library to convert HTML and 
 3. Gravity Forms 1.6.9+
 
 **Documentation and Support**
+
 To view the Development Documentation head to [http://www.gravityformspdfextended.com/documentation/](http://www.gravityformspdfextended.com/documentation/). If you need support with the plugin please post a topic in our [support forums](http://gravityformspdfextended.com/support/gravity-forms-pdf-extended/).
 
 == Installation ==
