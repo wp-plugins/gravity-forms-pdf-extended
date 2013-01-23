@@ -64,6 +64,10 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 
 == Changelog ==
 
+= 2.0.1 =
+* Fixed Signature bug when checking if image file exists using URL instead of filesystem path
+* Fixed PHP Constants Notice 
+
 = 2.0.0 =
 * Moved templates to active theme folder to prevent custom themes being removed on upgrade
 * Allow PDFs to be saved using a custom name
