@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.6.7">
+	<form labelPlacement="top_label" useCurrentUserAsAuthor="1">
+		<title><![CDATA[Gravity Forms PDF Extended Custom Template Sample]]></title>
+		<description><![CDATA[This form will demonstrate the new power of the PDF Extended plugin. All form data is now pulling into an array so you can display individual fields in what ever format you need.]]></description>
+		<confirmation type="message">
+			<message><![CDATA[The sample PDF has been emailed to the Wordpress Admin email.]]></message>
+		</confirmation>
+		<button type="text">
+			<text><![CDATA[Submit]]></text>
+		</button>
+		<fields>
+			<field id="1" size="medium" type="name">
+				<label><![CDATA[Name]]></label>
+				<inputs>
+					<input id="1.3">
+						<label><![CDATA[First]]></label>
+					</input>
+					<input id="1.6">
+						<label><![CDATA[Last]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="2" size="medium" type="address" addressType="international">
+				<label><![CDATA[Address]]></label>
+				<inputs>
+					<input id="2.1">
+						<label><![CDATA[Street Address]]></label>
+					</input>
+					<input id="2.2">
+						<label><![CDATA[Address Line 2]]></label>
+					</input>
+					<input id="2.3">
+						<label><![CDATA[City]]></label>
+					</input>
+					<input id="2.4">
+						<label><![CDATA[State / Province]]></label>
+					</input>
+					<input id="2.5">
+						<label><![CDATA[Zip / Postal Code]]></label>
+					</input>
+					<input id="2.6">
+						<label><![CDATA[Country]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="3" size="medium" type="phone" phoneFormat="international">
+				<label><![CDATA[Phone]]></label>
+			</field>
+		</fields>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+		<notification>
+			<to><![CDATA[{admin_email}]]></to>
+			<subject><![CDATA[New submission from {form_title}]]></subject>
+			<message><![CDATA[{all_fields}]]></message>
+		</notification>
+	</form>
+</forms>
