@@ -14,9 +14,9 @@ class GFPDF_Settings
 	 */ 
 	public function settings_page() {
 		if(RGForms::get("page") == "gf_settings") {
-			
+
 			/* Check if we need to redeploy default PDF templates/styles to the theme folder */
-			if(rgpost("gfpdf_deploy") && rgpost('upgrade') && wp_verify_nonce($_POST['gfpdf_deploy_nonce'],'gfpdf_deploy_nonce_action')){
+			if(rgpost("gfpdf_deploy") && rgpost('upgrade') && wp_verify_nonce($_POST['gfpdf_deploy_nonce'],'gfpdf_deploy_nonce_action')) {				
 				/* deploy new template styles */
 				self::deploy();
 			}
@@ -73,17 +73,17 @@ class GFPDF_Settings
             <?php $theme = wp_get_theme();
 				  $activetheme = $theme->get( 'TextDomain' ); ?>
             <ul>            
-            	<li><em>gravity-forms-pdf-extended/styles/template.css</em> to <strong><?php echo 'themes/'.$activetheme.'/'.PDF_SAVE_FOLDER.'/template.css'; ?></strong></li>
-            	<li><em>gravity-forms-pdf-extended/templates/example-template.php</em> to <strong><?php echo 'themes/'.$activetheme.'/'.PDF_SAVE_FOLDER.'/example-template.php'; ?></strong></li>                
-            	<li><em>gravity-forms-pdf-extended/templates/default-template.php</em> to <strong><?php echo 'themes/'.$activetheme.'/'.PDF_SAVE_FOLDER.'/default-template.php'; ?></strong></li>                
-            	<li><em>gravity-forms-pdf-extended/templates/default-template-two-rows.php</em> to <strong><?php echo 'themes/'.$activetheme.'/'.PDF_SAVE_FOLDER.'/default-template-two-rows.php'; ?></strong></li>                
-            	<li><em>gravity-forms-pdf-extended/templates/default-template-no-style.php</em> to <strong><?php echo 'themes/'.$activetheme.'/'.PDF_SAVE_FOLDER.'/default-template-no-style.php'; ?></strong></li>                                                               
+            	<li><em>gravity-forms-pdf-extended/styles/template.css</em> to <strong><?php echo 'themes'.$activetheme.'/'.PDF_SAVE_FOLDER.'/template.css'; ?></strong></li>
+            	<li><em>gravity-forms-pdf-extended/templates/example-template.php</em> to <strong><?php echo 'themes'.$activetheme.'/'.PDF_SAVE_FOLDER.'/example-template.php'; ?></strong></li>                
+            	<li><em>gravity-forms-pdf-extended/templates/default-template.php</em> to <strong><?php echo 'themes'.$activetheme.'/'.PDF_SAVE_FOLDER.'/default-template.php'; ?></strong></li>                
+            	<li><em>gravity-forms-pdf-extended/templates/default-template-two-rows.php</em> to <strong><?php echo 'themes'.$activetheme.'/'.PDF_SAVE_FOLDER.'/default-template-two-rows.php'; ?></strong></li>                
+            	<li><em>gravity-forms-pdf-extended/templates/default-template-no-style.php</em> to <strong><?php echo 'themes'.$activetheme.'/'.PDF_SAVE_FOLDER.'/default-template-no-style.php'; ?></strong></li>                                                               
             </ul>
             
             <p><strong>If you have made any modifications to the default templates please backup your files before deploying and then add your custom modifications to the updated templates.</strong></p>
             
           <form method="post">
-                <!-- some inputs here ... -->
+                <?php wp_nonce_field('gfpdf_deploy_nonce_action','gfpdf_deploy_nonce'); ?>
                 <input type="hidden" name="gfpdf_deploy" value="1">
                 <input type="submit" value="Deploy Templates" class="button" id="upgrade" name="upgrade">
           </form>        
@@ -127,6 +127,13 @@ class GFPDF_Settings
 	private function deploy()
 	{
 		GFPDF_InstallUpdater::pdf_extended_activate(true);
+		add_action('admin_notices', array("GFPDF_Settings", "gf_pdf_deploy_success")); 	
+	}
+	
+	public function gf_pdf_deploy_success() {
+			echo '<div id="message" class="updated"><p>';
+			echo 'You\'ve successfully deployed the Gravity Forms PDF Extended template files.';
+			echo '</p></div>';		
 	}
 }
 
