@@ -1,0 +1,8 @@
+/**
+ * The following snippet of CSS styles the default templates and the example template
+ * The uncompressed version can be found in uncompressed-template.css in the plugin's folder
+ * DO NO REMOVE THESE STYLES.
+ */
+#container{border-radius:4px 4px 4px 4px;border-spacing:0;border-style:solid;border-width:1px;clear:both;margin:0;width:100%;background-color:#fff;border-color:#dfdfdf;margin:0 0 16px}h2{background-color:#e3e3e3;font-size:14px;padding:7px;margin:0;text-align:left;text-shadow:0 1px 0 #fff}.entry-view-field-value{border-bottom:1px solid #dfdfdf;line-height:150%;padding:6px 6px 6px 7px}.entry-view-field-value ul{margin-left:25px}.no-style .entry-view-field-value,.no-style #container,.no-style h2{background:0;border:0}.no-style .odd,.no-style .even,.two-row .odd,.two-row .even{background:0}.two-row .entry-view-field-value{border:0;line-height:normal;padding:0}.two-row .entry-view-field-value>strong{display:block;width:100%;border-bottom:1px solid #dfdfdf;line-height:150%;background-color:#eaf2fa;padding:6px 6px 6px 7px}.two-row .entry-view-field-value>div,.two-row .entry-view-field-value>span{display:block;width:100%;border-bottom:1px solid #fff;font-weight:bold;line-height:150%;padding:6px 6px 6px 7px}.two-row .entry-view-field-value>span{font-weight:normal}td.entry-view-field-value{padding-left:9px}.even{background:#eaf2fa}.body_copy{padding-top:50px}.pdf_logo_area{text-align:center;margin:0 auto}
+/* ADD YOUR CUSTOM STYLES BELOW */
+
