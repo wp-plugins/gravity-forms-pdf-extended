@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4.1
 Tested up to: 3.5
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,10 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 2.1.1 =
+* Bug - Signatures stopped displaying after 2.1.0 update. Fixed issue. 
+* Bug - First time install code now won't execute if already have configuration variables in database
 
 = 2.1.0 =
 
@@ -125,5 +129,5 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 
 == Upgrade Notice ==
 
-= 2.0.0 =
-New Features: Added custom PDF names and moved templates to active theme's folder (no longer overridden after updating). Also fixed a number of bugs in the problem. Remember to backup your custom templates before upgrading! 
+= 2.1.1 =
+Two minor bug fixes added. Review changelog for details.
