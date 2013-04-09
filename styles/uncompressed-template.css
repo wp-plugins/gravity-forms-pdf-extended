@@ -1,0 +1,88 @@
+/**
+ * The following snippet of CSS styles the default templates and the example template
+ * The uncompressed version can be found in uncompressed-template.css in the plugin's folder
+ * DO NO REMOVE THESE STYLES.
+ */
+
+#container {
+    border-radius: 4px 4px 4px 4px;
+    border-spacing: 0;
+    border-style: solid;
+    border-width: 1px;
+    clear: both;
+    margin: 0;
+    width: 100%;
+	background-color: #FFFFFF;
+    border-color: #DFDFDF;
+	margin: 0 0 16px;
+}
+
+h2 {
+    background-color: #E3E3E3;
+    font-size: 14px;
+    padding: 7px;
+	margin: 0;
+    text-align: left;
+    text-shadow: 0 1px 0 #FFFFFF;	
+}
+
+.entry-view-field-value {
+    border-bottom: 1px solid #DFDFDF;
+    line-height: 150%;
+    padding: 6px 6px 6px 7px;	
+}
+
+.entry-view-field-value ul {
+margin-left: 25px;	
+}
+
+.no-style .entry-view-field-value, .no-style #container, .no-style h2 {
+background: none;
+border: none;
+}
+
+.no-style .odd, .no-style .even, .two-row .odd, .two-row .even {
+background: none;	
+}
+
+.two-row .entry-view-field-value {
+border: none; line-height:normal; padding: 0;
+}
+
+.two-row .entry-view-field-value > strong {
+	display: block;
+	width: 100%;
+    border-bottom: 1px solid #DFDFDF;
+    line-height: 150%;
+	background-color: #EAF2FA;
+    padding: 6px 6px 6px 7px;	
+}
+
+.two-row .entry-view-field-value > div {
+	display: block;
+	width: 100%;	
+    border-bottom: 1px solid #FFFFFF;
+    font-weight: bold;
+    line-height: 150%;
+    padding: 6px 6px 6px 7px;
+}
+
+td.entry-view-field-value {
+padding-left: 9px;	
+}
+
+.even {
+background: #EAF2FA;	
+}
+
+.body_copy {
+padding-top: 50px;	
+}
+
+.pdf_logo_area {
+text-align: center;
+margin: 0 auto;
+}
+
+/* ADD YOUR CUSTOM STYLES BELOW */
+
