@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4.1
 Tested up to: 3.5
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,9 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 2.2.1 =
+* Bug - Fixed HTML error which caused list items to distort on PDF
 
 = 2.2.0 =
 * Compatibility - Ensure compatibility with Gravity Forms 1.7. We’ve updated the functions.php code and remove gform_user_notification_attachments and gform_admin_notification_attachments hooks which are now depreciated. Functions gform_pdf_create and gform_add_attachment have been removed and replaced with gfpdfe_create_and_attach_pdf(). See upgrade documentation for details.
