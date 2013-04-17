@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4.1
 Tested up to: 3.5
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,10 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 2.2.2 =
+* DOMPDF - We updated to the latest version of DOMPDF - DOMPDF 0.6.0 beta 3.
+* DOMPDF - We've enabled font subsetting by default which should help limit the increased PDF size when using DejaVu Sans (or any other font). 
 
 = 2.2.1 =
 * Bug - Fixed HTML error which caused list items to distort on PDF
