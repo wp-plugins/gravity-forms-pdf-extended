@@ -2,7 +2,7 @@
 Contributors: blueliquiddesigns
 Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
-Requires at least: 3.4.1
+Requires at least: 3.5
 Tested up to: 3.5
 Stable tag: 3.0.1
 License: GPLv2 or later
@@ -12,7 +12,7 @@ Gravity Forms PDF Extended allows you to save/view/download a PDF from the front
 
 == Description ==
 
-Gravity Forms PDF Extended is a plugin for Wordpress and Gravity Forms that allows your website to create PDFs when a user submits a Gravity Form and easily attach it to an email.
+As of Gravity Forms PDF Extended v3.0.0 we have removed the DOMPDF package from our plugin and integrated the more advanced mPDF system. Along with a new HTML to PDF generator, we’ve rewritten the entire plugin’s base code to make it more user friendly to both hobbyists and rock star web developers. Configuration time is cut in half and advanced features like adding security features is now accessible to users who have little experience with PHP.
 
 **Features**
 
@@ -24,30 +24,51 @@ Gravity Forms PDF Extended is a plugin for Wordpress and Gravity Forms that allo
 * View and download a PDF via the administrator interface
 * Simple function to output PDF via template / plugin
 * Works with Gravity Forms Signature Add-On
-* Installs a sample form using the new MERGETAGS-style template to help customisation
+
+** PDF Features **
+
+Along with the above features, the new PDF features include:
+
+* Language Support – almost all languages are supported including RTL (right to left) languages like Arabic and Hebrew and CJK languages – Chinese, Japanese and Korean.
+* HTML Page Numbering
+* Odd and even paging with mirrored margins (most commonly used in printing).
+* Nested Tables
+* Text-justification and hyphenation
+* Table of Contents
+* Index
+* Bookmarks
+* Watermarks
+* Password protection
+* UTF-8 encoded HTML
+* Better system resource handling
 
 **Server Requirements**
 
 1. PHP 5.3+
 2. GD Library (optional)
-3. RAM - Recommended 128MB
+3. RAM:	Recommended: 128MB
 
 **Software Requirements**
 
 1. [Purchase and install Gravity Forms](https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=235154)
-2. Wordpress 3.0+
+2. Wordpress 3.5+
 3. Gravity Forms 1.6.9+
 
 **Documentation and Support**
 
-To view the Development Documentation head to [http://gravityformspdfextended.com/documentation-v3-x-x](http://gravityformspdfextended.com/documentation-v3-x-x). If you need support with the plugin please post a topic in our [support forums](http://gravityformspdfextended.com/support/gravity-forms-pdf-extended/beta-v3-0-0-feedback-bug-reports/).
+To view the Development Documentation head to [http://www.gravityformspdfextended.com/documentation/](http://www.gravityformspdfextended.com/documentation/). If you need support with the plugin please post a topic in our [support forums](http://gravityformspdfextended.com/support/gravity-forms-pdf-extended/).
 
 == Installation ==
 
 1. Upload this plugin to your website and activate it
 2. Create a form in Gravity Forms and configure notifications
-3. Get the Form ID and follow the steps below in [the configuration section](http://gravityformspdfextended.com/documentation/installation/configuration/)
-4. Modify the PDF template file ([see the advanced templating section in the documentation](http://gravityformspdfextended.com/documentation/advanced-configuration/)), pdf-print-entry.php or example-template.php, inside your active theme's PDF_EXTENDED_TEMPLATES/ folder.
+3. Get the Form ID and follow the steps below in [the configuration section](http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/)
+4. Modify the PDF template file ([see the advanced templating section in the documentation](http://gravityformspdfextended.com/documentation-v3-x-x/templates/)) inside your active theme's PDF_EXTENDED_TEMPLATES/ folder.
+
+
+== Frequently Asked Questions ==
+
+All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravityformspdfextended.com/faq/category/developers/).  
 
 == Screenshots ==
 
@@ -88,6 +109,9 @@ Other changes include
 * $form_data array tidied up - images won't be wrapped in anchor tags. 
 
 For more details [view the 3.x.x online documentation](http://gravityformspdfextended.com/documentation-v3-x-x/introduction/).
+
+= 2.2.3 =
+* Bug - Fixed mb_string error in the updated DOMPDF package.
 
 = 2.2.2 =
 * DOMPDF - We updated to the latest version of DOMPDF - DOMPDF 0.6.0 beta 3.
