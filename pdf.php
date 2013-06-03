@@ -25,7 +25,7 @@ GNU General Public License for more details.
  * As PDFs can't be generated if notices are displaying turn off error reporting to the screen.
  * Production servers should already have this done.
  */
- //error_reporting(0);
+ error_reporting(0);
  
 /*
  * Define our constants 
