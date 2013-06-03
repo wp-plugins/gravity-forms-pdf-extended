@@ -2,9 +2,9 @@
 Contributors: blueliquiddesigns
 Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
-Requires at least: 3.4.1
+Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 2.2.3
+Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,7 @@ Gravity Forms PDF Extended allows you to save/view/download a PDF from the front
 
 == Description ==
 
-Gravity Forms PDF Extended is a plugin for Wordpress and Gravity Forms that allows your web server to create PDFs when a user submits a Gravity Form. Not only that, you can then easily attach the document to an email.
-
-At its core the plugin uses the power of the DOMPDF library to convert HTML and CSS into PDFs.
+As of Gravity Forms PDF Extended v3.0.0 we have removed the DOMPDF package from our plugin and integrated the more advanced mPDF system. Along with a new HTML to PDF generator, we’ve rewritten the entire plugin’s base code to make it more user friendly to both hobbyists and rock star web developers. Configuration time is cut in half and advanced features like adding security features is now accessible to users who have little experience with PHP.
 
 **Features**
 
@@ -26,19 +24,34 @@ At its core the plugin uses the power of the DOMPDF library to convert HTML and 
 * View and download a PDF via the administrator interface
 * Simple function to output PDF via template / plugin
 * Works with Gravity Forms Signature Add-On
-* Installs a sample form using the new MERGETAGS-style template to help customisation
+
+** PDF Features **
+
+Along with the above features, the new PDF features include:
+
+* Language Support – almost all languages are supported including RTL (right to left) languages like Arabic and Hebrew and CJK languages – Chinese, Japanese and Korean.
+* HTML Page Numbering
+* Odd and even paging with mirrored margins (most commonly used in printing).
+* Nested Tables
+* Text-justification and hyphenation
+* Table of Contents
+* Index
+* Bookmarks
+* Watermarks
+* Password protection
+* UTF-8 encoded HTML
+* Better system resource handling
 
 **Server Requirements**
 
-1. PHP 5.0+ (5.3 recommended)
-2. MBString extension
-3. DOM extension (bundled with PHP 5)
-4. If you want images in your PDF you'll also need the GD Library
+1. PHP 5.3+
+2. GD Library (optional)
+3. RAM:	Recommended: 128MB
 
 **Software Requirements**
 
 1. [Purchase and install Gravity Forms](https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=235154)
-2. Wordpress 3.0+
+2. Wordpress 3.5+
 3. Gravity Forms 1.6.9+
 
 **Documentation and Support**
@@ -49,8 +62,8 @@ To view the Development Documentation head to [http://www.gravityformspdfextende
 
 1. Upload this plugin to your website and activate it
 2. Create a form in Gravity Forms and configure notifications
-3. Get the Form ID and follow the steps below in [the configuration section](http://gravityformspdfextended.com/documentation/installation/configuration/)
-4. Modify the PDF template file ([see the advanced templating section in the documentation](http://gravityformspdfextended.com/documentation/advanced-configuration/)), pdf-print-entry.php or example-template.php, inside your active theme's PDF_EXTENDED_TEMPLATES/ folder.
+3. Get the Form ID and follow the steps below in [the configuration section](http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/)
+4. Modify the PDF template file ([see the advanced templating section in the documentation](http://gravityformspdfextended.com/documentation-v3-x-x/templates/)) inside your active theme's PDF_EXTENDED_TEMPLATES/ folder.
 
 
 == Frequently Asked Questions ==
@@ -63,6 +76,39 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.0.1 =
+* Bug - Fixed issue that caused website to become unresponsive when Gravity Forms was disabled or upgraded
+* Bug - New HTML fields weren't being displayed in $form_data array
+* Feature - Options for default templates to disable HTML fields or empty fields (or both)
+
+= 3.0.0 =
+As of Gravity Forms PDF Extended v3.0.0 we have removed the DOMPDF package from our plugin and integrated the more advanced mPDF system. Along with a new HTML to PDF generator, we’ve rewritten the entire plugin’s base code to make it more user friendly to both hobbyists and rock star web developers. Configuration time is cut in half and advanced features like adding security features is now accessible to users who have little experience with PHP.
+
+New Features include:
+
+* Language Support – almost all languages are supported including RTL (right to left) languages like Arabic and Hebrew and CJK languages – Chinese, Japanese and Korean.
+* HTML Page Numbering
+* Odd and even paging with mirrored margins (most commonly used in printing).
+* Nested Tables
+* Text-justification and hyphenation
+* Table of Contents
+* Index
+* Bookmarks
+* Watermarks
+* Password protection
+* UTF-8 encoded HTML
+* Better system resource handling
+
+A new HTML to PDF package wasn’t the only change to this edition of the software. We have rewritten the entire configuration system and made it super easy to get the software up and running.
+
+Users will no longer place code in their active theme’s functions.php file. Instead, configuration will happen in a new file called configuration.php, inside the PDF_EXTENDED_TEMPLATES folder (in your active theme).
+
+Other changes include
+* Improved security - further restrictions were placed on non-administrators viewing template files.
+* $form_data array tidied up - images won't be wrapped in anchor tags. 
+
+For more details [view the 3.x.x online documentation](http://gravityformspdfextended.com/documentation-v3-x-x/introduction/).
 
 = 2.2.3 =
 * Bug - Fixed mb_string error in the updated DOMPDF package.
