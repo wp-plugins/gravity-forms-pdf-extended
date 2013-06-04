@@ -44,7 +44,7 @@ Along with the above features, the new PDF features include:
 
 **Server Requirements**
 
-1. PHP 5.3+
+1. PHP 5+
 2. GD Library (optional)
 3. RAM:	Recommended: 128MB
 
