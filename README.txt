@@ -2,9 +2,9 @@
 Contributors: blueliquiddesigns
 Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
-Requires at least: 3.5
+Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 3.0.2
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,13 +45,14 @@ Along with the above features, the new PDF features include:
 **Server Requirements**
 
 1. PHP 5+
-2. GD Library (optional)
-3. RAM:	Recommended: 128MB
+2. MB String
+3. GD Library (optional)
+4. RAM:	Recommended: 128MB. Minimum: 64MB.
 
 **Software Requirements**
 
 1. [Purchase and install Gravity Forms](https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=235154)
-2. Wordpress 3.5+
+2. Wordpress 3.4+
 3. Gravity Forms 1.6.9+
 
 **Documentation and Support**
@@ -76,6 +77,22 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.1.0 =
+* Feature - Added defaults to configuration.php which allows users to define the default PDF settings for all Gravity Forms. See the [installation and configuration documentation](http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/#default-configuration-options) for more details. 
+* Feature - Added three new configuration options 'default-show-html', 'default-show-empty' and 'default-show-page-names' which allow different display options to the three default templates. See the [installation and configuration documentation](http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/#default-template-only) for more details.
+* Feature - Added filter hooks 'gfpdfe_pdf_name' and 'gfpdfe_template' which allows developers to further modify a PDF name and template file, respectively, outside of the configuration.php. This is useful if you have a special case naming convention based on user input. See [http://gravityformspdfextended.com/filters-and-hooks/](http://gravityformspdfextended.com/filters-and-hooks/) for more details about using these filters.
+* Feature - Custom font support. Any .ttf font file added to the PDF_EXTENDED_TEMPLATE/fonts/ folder will be automatically installed once the plugin has been initialised. Users also have the option to just initialise the fonts via the settings page. See the [font/language documentation ](http://gravityformspdfextended.com/documentation-v3-x-x/language-support/#installing-fonts) for details.
+* Compatability - Use Gravity Forms get_upload_root() and get_upload_url_root() instead of hard coding the signature upload directory in pdf-entry-detail.php
+* Compatability - Changed depreciated functions get_themes() and get_theme() to wp_get_theme() (added in Wordpress v3.4). 
+* Compatability - The plugin now needs to be initialised on fresh installation and upgrade. This allows us to use the WP_Filesystem API for file manipulation.
+* Compatability - Automatic copying of PDF_EXTENDED_TEMPLATE folder on a theme change was removed in favour of a user prompt. This allows us to take advantage of the WP_Filesystem API.
+* Compatability - Added Wordpress compatibility checker (minimum now 3.4 or higher).
+* Bug - Removed ZipArchive in favour of Wordpress's WP_Filesystem API unzip_file() command. Some users reported the plugin would stop their entire website working if this extension wasn't installed.
+* Bug - Fixed Gravity Forms compatibility checker which wouldn't return the correct response.
+* Bug - Fixed minor bug in pdf.php when using static call 'self' in add_filter hook. Changed to class name.
+* Bug - Removed PHP notice about $even variable not being defined in pdf-entry-detail.php
+* Bug - Prevent code from continuing to excecute after sending header redirect.
 
 = 3.0.2 =
 * Backwards Compatibility - While PHP 5.3 has was released a number of years ago it seems a number of hosts do not currently offer this version to their clients. In the interest of backwards compatibility we've re-written the plugin to again work with PHP 5+.
@@ -196,5 +213,5 @@ For more details [view the 3.x.x online documentation](http://gravityformspdfext
 
 == Upgrade Notice ==
 
-= 2.0.0 =
-New Features: Added custom PDF names and moved templates to active theme's folder (no longer overridden after updating). Also fixed a number of bugs in the problem. Remember to backup your custom templates before upgrading! 
+= 3.1.0 =
+We've added custom font support, a number of configuration options for the default template, fixed a major compatibility issue with unzipping files and reworked the entire installation and upgrade manager. Note: Wordpress 3.4 is now the minimum supported version.
