@@ -1,0 +1,35 @@
+#pdfextended-settings .leftcolumn {
+	width: 50%;
+	float: left;
+}
+
+#pdfextended-settings .rightcolumn {
+	margin-left: 55%;
+}
+
+#pdfextended-settings ol, #pdfextended-settings ul {
+margin-left: 25px;	
+}
+#pdfextended-settings ul > li {
+list-style: disc;	
+}
+
+#pdfextended-settings ol > li {
+list-style: decimal;	
+}
+
+#pdfextended-settings ol li > ul, #pdfextended-settings ul li > ul {
+margin: 5px 0 0 20px;
+}
+
+#pdfextended-settings ul ul > li {
+	list-style: circle;
+}
+
+#pdfextended-settings ol ul > li {
+list-style: disc;	
+}
+
+#gform_tab_group #icon-gf_edit_forms {
+display: none;	
+}
