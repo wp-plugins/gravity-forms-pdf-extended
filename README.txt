@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4
 Tested up to: 3.5.2
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,10 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.1.1 =
+* Bug - Users whose server only supports FTP file manipulation using the WP_Filesystem API moved the files into the wrong directory due to FTP usually being rooted to the Wordpress home directory. To fix this the plugin attempts to determine the FTP directory, otherwise assumes it is the WP base directory. 
+* Bug - Initialisation error message was being called but the success message was also showing. 
 
 = 3.1.0 =
 * Feature - Added defaults to configuration.php which allows users to define the default PDF settings for all Gravity Forms. See the [installation and configuration documentation](http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/#default-configuration-options) for more details. 
@@ -213,5 +217,5 @@ For more details [view the 3.x.x online documentation](http://gravityformspdfext
 
 == Upgrade Notice ==
 
-= 3.1.0 =
+= 3.1.1 =
 We've added custom font support, a number of configuration options for the default template, fixed a major compatibility issue with unzipping files and reworked the entire installation and upgrade manager. Note: Wordpress 3.4 is now the minimum supported version.
