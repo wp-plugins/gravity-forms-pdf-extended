@@ -142,20 +142,20 @@ class GFPDF_Settings
                     
                      <h2><?php _e('What\'s new in v'.PDF_EXTENDED_VERSION.'?' , "gravityformspdfextended") ?></h2>
 <ol>                     
-<li><strong>Feature</strong> - Added defaults to configuration.php which allows users to define the default PDF settings for all Gravity Forms. For more details or if you are upgrading see ... for more details.</li>
-<li><strong>Feature</strong> - Added three new configuration options 'default-show-html', 'default-show-empty' and 'default-show-page-names' which allow different display options to the three default templates. </li>
-<li><strong>Feature</strong> - Added filter hooks 'gfpdfe_pdf_name' and 'gfpdfe_template' which allows developers to further modify a PDF name and template file, respectively, outside of the configuration.php. This is useful if you have a special case naming convention based on user input. See <a href="http://gravityformspdfextended.com/filters-and-hooks/">http://gravityformspdfextended.com/filters-and-hooks/</a> for more details about using this hook.</li>
-<li><strong>Feature</strong> - Any .ttf font file added to the PDF_EXTENDED_TEMPLATE/fonts/ folder will be automatically installed once the plugin has been initialised. Users also have the option to just initialise the fonts via the settings page. See <a href="http://gravityformspdfextended.com/documentation-v3-x-x/language-support/">the documentation</a> for details.</li>
+<li><strong>Feature</strong> - Added defaults to configuration.php which allows users to define the default PDF settings for all Gravity Forms. See the <a href="http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/#default-configuration-options">installation and configuration documentation</a> for more details. </li>
+<li><strong>Feature</strong> - Added three new configuration options 'default-show-html', 'default-show-empty' and 'default-show-page-names' which allow different display options to the three default templates. See the <a href="http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/#default-template-only">installation and configuration documentation</a> for more details.</li>
+<li><strong>Feature</strong> - Added filter hooks 'gfpdfe_pdf_name' and 'gfpdfe_template' which allows developers to further modify a PDF name and template file, respectively, outside of the configuration.php. This is useful if you have a special case naming convention based on user input. See <a href="http://gravityformspdfextended.com/filters-and-hooks/">http://gravityformspdfextended.com/filters-and-hooks/</a> for more details about using these filters.</li>
+<li><strong>Feature</strong> - Custom font support. Any .ttf font file added to the PDF_EXTENDED_TEMPLATE/fonts/ folder will be automatically installed once the plugin has been initialised. Users also have the option to just initialise the fonts via the settings page. See the <a href="http://gravityformspdfextended.com/documentation-v3-x-x/language-support/#installing-fonts">fonts/language documentation</a> for details.</li>
 <li><strong>Compatability</strong> - Use Gravity Forms get_upload_root() and get_upload_url_root() instead of hard coding the signature upload directory in pdf-entry-detail.php</li>
 <li><strong>Compatability</strong> - Changed depreciated functions get_themes() and get_theme() to wp_get_theme() (added in Wordpress v3.4). </li>
 <li><strong>Compatability</strong> - The plugin now needs to be initialised on fresh installation and upgrade. This allows us to use the WP_Filesystem API for file manipulation.</li>
-<li><strong>Compatability</strong> - Automatic copying of PDF_EXTENDED_TEMPLATE folder on theme change was removed in favour of user prompt. This allows us to take advantage of the WP_Filesystem API.</li>
+<li><strong>Compatability</strong> - Automatic copying of PDF_EXTENDED_TEMPLATE folder on a theme change was removed in favour of a user prompt. This allows us to take advantage of the WP_Filesystem API.</li>
 <li><strong>Compatability</strong> - Added Wordpress compatibility checker (minimum now 3.4 or higher).</li>
 <li><strong>Bug</strong> - Removed ZipArchive in favour of Wordpress's WP_Filesystem API unzip_file() command. Some users reported the plugin would stop their entire website working if this extension wasn't installed.</li>
 <li><strong>Bug</strong> - Fixed Gravity Forms compatibility checker which wouldn't return the correct response.</li>
 <li><strong>Bug</strong> - Fixed minor bug in pdf.php when using static call 'self' in add_filter hook. Changed to class name.</li>
 <li><strong>Bug</strong> - Removed PHP notice about $even variable not being defined in pdf-entry-detail.php</li>
-<li><strong>Bug</strong> - Prevent code from executing after sending header redirect</li>   </ol>                  
+<li><strong>Bug</strong> - Prevent code from continuing to excecute after sending header redirect.</li>   </ol>                  
 
 
         

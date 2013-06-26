@@ -17,7 +17,7 @@
  global $gf_pdf_default_configuration;
  
  $gf_pdf_default_configuration = array(
- 	'template' => 'default-template.php',
+ 	'template' => 'default-template-two-rows.php',
 	'pdf_size' => 'A4'	
  ); 
  
@@ -57,7 +57,7 @@
   /*$gf_pdf_config[] = array(
   	'form_id' => '1', 
 	'template' => 'default-template.php',	
-	'default-show-empty' => false
+	'default-show-empty' => true
   );*/ 
   
   /*$gf_pdf_config[] = array(
@@ -70,7 +70,7 @@
   	'form_id' => '1', 
 	'template' => 'default-template.php',		
 	'default-show-html' => true,
-	'default-show-empty' => false,
+	'default-show-empty' => true,
 	'default-show-page-names' => true
   );*/   
   

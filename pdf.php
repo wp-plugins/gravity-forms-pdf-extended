@@ -25,7 +25,10 @@ GNU General Public License for more details.
  * As PDFs can't be generated if notices are displaying turn off error reporting to the screen.
  * Production servers should already have this done.
  */
- //error_reporting(0);
+ if(WP_DEBUG !== true)
+ {
+ 	error_reporting(0);
+ }
  
 /*
  * Define our constants 
@@ -233,16 +236,6 @@ class GFPDF_Core extends PDFGenerator
 	 */
 	function gfe_admin_init()
 	{					
-		/*
-		 * Check if GF PDF Extended is correctly installed. If not we'll run the installer.
-		 */	
-		if( (get_option('gf_pdf_extended_installed') != 'installed') || (!is_dir(PDF_TEMPLATE_LOCATION)) )
-		{		
-			/*
-			 * Prompt user to initialise plugin
-			 */
-			 add_action('admin_notices', array("GFPDF_InstallUpdater", "gf_pdf_not_deployed_fresh")); 	
-		}
 		
 		/* 
 		 * Check if database plugin version matches current plugin version and updates if needed
@@ -256,14 +249,27 @@ class GFPDF_Core extends PDFGenerator
 			exit;
 		}
 		
-		/**
-		 * Check if deployed new template files after update
-		 */ 
-		 if(get_option('gf_pdf_extended_deploy') == 'no' && !rgpost('upgrade') && PDF_DEPLOY === true) {
-			/*show warning message */
-			add_action('admin_notices', array("GFPDF_InstallUpdater", "gf_pdf_not_deployed")); 	
-		 }		
-				 				
+		/*
+		 * Check if GF PDF Extended is correctly installed. If not we'll run the installer.
+		 */	
+		if( (get_option('gf_pdf_extended_installed') != 'installed') || (!is_dir(PDF_TEMPLATE_LOCATION)) && (!rgpost('upgrade')) )
+		{		
+			/*
+			 * Prompt user to initialise plugin
+			 */
+			 add_action('admin_notices', array("GFPDF_InstallUpdater", "gf_pdf_not_deployed_fresh")); 	
+		}
+		else
+		{				
+			/**
+			 * Check if deployed new template files after update
+			 */ 
+			 if(get_option('gf_pdf_extended_deploy') == 'no' && !rgpost('upgrade') && PDF_DEPLOY === true) {
+				/*show warning message */
+				add_action('admin_notices', array("GFPDF_InstallUpdater", "gf_pdf_not_deployed")); 	
+			 }	
+		}
+									
 		/* 
 		 * Configure the settings page
 		 */
@@ -608,8 +614,7 @@ class GFPDF_Core extends PDFGenerator
 		 * Before setting up PDF options we will check if a configuration is found
 		 * If not, we will set up defaults defined in configuration.php
 		 */
-		 $this->check_configuration($index, $form_id);
-		
+		 $index = $this->check_configuration($index, $form_id);
 
 				$pdf_name = (isset($this->configuration[$index]['filename']) && strlen($this->configuration[$index]['filename']) > 0) ? $this->get_pdf_name($index, $form_id, $lead_id) : PDF_Common::get_pdf_filename($form_id, $lead_id);
 				$template = (isset($template) && strlen($template) > 0) ? $template : $this->get_template($index);	 
@@ -674,13 +679,13 @@ class GFPDF_Core extends PDFGenerator
 				 
 				 /* get the id of the newly added configuration */
 				 end($this->configuration);
-				 $key = key($this->configuration);
+				 $index = key($this->configuration);
 				 
 				 /* now add to the index */
-				 $this->assign_index($form_id, $key);				  
+				 $this->assign_index($form_id, $index);				  
 				 
 			}
 		}
-	}
-	
+		return $index;	
+	}	
 }

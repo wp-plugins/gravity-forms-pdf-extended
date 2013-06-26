@@ -286,7 +286,7 @@ class GFPDF_InstallUpdater
 	/**
 	 * PDF Extended has been freshly installed
 	 */
-	public function gf_pdf_not_deployed_free()
+	public function gf_pdf_not_deployed_fresh()
 	{		
 		if( (PDF_DEPLOY === true) && !rgpost('update') )
 		{
