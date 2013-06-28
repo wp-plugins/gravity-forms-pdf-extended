@@ -143,7 +143,7 @@ class GFPDF_Settings
                      <h2><?php _e('What\'s new in v'.PDF_EXTENDED_VERSION.'?' , "gravityformspdfextended") ?></h2>
                      
 <ol>                     
-<li><strong>Feature</strong> - Added list array, form ID and lead ID to $form_data array in custom templates</li>
+<li><strong>Feature</strong> - Added list array, file path, form ID and lead ID to $form_data array in custom templates</li>
 <li><strong>Bug</strong> - Fixed initialisation prompt issue when updating plugin</li>
 <li><strong>Bug</strong> - Fixed window.open issue which prevented a new window from opening when viewing a PDF in the admin area</li>
 <li><strong>Bug</strong> - Fixed issue with product dropdown and radio button data showing the value instead of the name field.</li>

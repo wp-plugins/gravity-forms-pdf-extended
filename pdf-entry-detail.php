@@ -392,6 +392,31 @@ if(!class_exists('GFPDFEntryDetail'))
 								$is_last = $count >= $field_count && !$has_product_fields ? true : false;
 								$last_row = $is_last ? " lastrow" : "";
 							break;
+							case "fileupload":
+				
+								$value = RGFormsModel::get_lead_field_value($lead, $field); 
+								$display = self::get_lead_field_display($field, $value, $lead["currency"]);		
+								
+								/*
+								 * Get the absolute path to the upload
+								 */	
+								 $path = str_replace(home_url().'/', ABSPATH, $display); 
+								 
+								 /* add path */
+								 $form_array['field'][$field['id'].'_path'] = $path;
+								 $form_array['field'][$field['id'].'.'.$field['label'].'_path'] = $path;								 
+								
+								/* add data to field tag correctly */
+								$form_array['field'][$field['id'].'.'.$field['label']] = $display;
+								
+								/* add ID incase want to use template on multiple duplicate forms with different field names */
+								$form_array['field'][$field['id']] = $display;
+								
+								/* keep backwards compatibility */
+								$form_array['field'][$field['label']] = $display;	
+								
+																					
+							break;
 							case "list":
 								/*
 								 * We want list to run both this and the deafult so don't call break.								 

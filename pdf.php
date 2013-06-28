@@ -297,10 +297,11 @@ class GFPDF_Core extends PDFGenerator
 		if($template !== false)
 		{
 			$lead_id = $lead['id'];
-			
+			$url = home_url() .'/?gf_pdf=print-entry&fid=' . $form_id . '&lid=' . $lead_id . '&template=' . $template; 
+
 			?>
-			PDF: <a href="javascript:;" onclick="var url='<?php echo home_url(); ?>/?gf_pdf=print-entry&fid=<?php echo $form_id; ?>&lid=<?php echo $lead_id; ?>&template=<?php echo $template; ?>'; window.open (url); return false;" class="button">View</a> 
-				 <a href="javascript:;" onclick="var url='<?php echo home_url(); ?>/?gf_pdf=print-entry&download=1&fid=<?php echo $form_id; ?>&lid=<?php echo $lead_id; ?>&template=<?php echo $template; ?>'; window.open (url); return false;" class="button">Download</a>
+			PDF: <a href="<?php echo $url; ?>" onclick="var url='<?php echo $url; ?>'; window.open (url); return false;" class="button">View</a> 
+				 <a href="<?php echo $url.'&download=1'; ?>" onclick="var url='<?php echo $url.'&download=1'; ?>'; window.open (url); return false;" class="button">Download</a>
 			<?php
 		}
 	}
@@ -316,9 +317,10 @@ class GFPDF_Core extends PDFGenerator
 		if($template !== false)
 		{
 			$lead_id = $lead['id'];
+			$url = home_url() .'/?gf_pdf=print-entry&fid=' . $form_id . '&lid=' . $lead_id . '&template=' . $template; 
 			
 			?>
-			| <a href="javascript:;" onclick="var url='<?php echo home_url(); ?>/?gf_pdf=print-entry&fid=<?php echo $form_id; ?>&lid=<?php echo $lead_id; ?>&template=<?php echo $template; ?>'; window.open (url); return false;"> View PDF</a> 
+			| <a href="<?php echo $url; ?>" onclick="var url='<?php echo $url; ?>'; window.open (url); return false;"> View PDF</a> 
 			<?php
 		}
 	}

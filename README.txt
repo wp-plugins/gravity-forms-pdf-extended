@@ -79,7 +79,7 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 == Changelog ==
 
 = 3.1.2 =
-* Feature - Added list array, form ID and lead ID to $form_data array in custom templates
+* Feature - Added list array, file path, form ID and lead ID to $form_data array in custom templates
 * Bug - Fixed initialisation prompt issue when updating plugin
 * Bug - Fixed window.open issue which prevented a new window from opening when viewing a PDF in the admin area
 * Bug - Fixed issue with product dropdown and radio button data showing the value instead of the name field.
