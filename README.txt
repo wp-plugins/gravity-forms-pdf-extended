@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4
 Tested up to: 3.5.2
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,13 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.1.2 =
+* Feature - Added list array, file path, form ID and lead ID to $form_data array in custom templates
+* Bug - Fixed initialisation prompt issue when updating plugin
+* Bug - Fixed window.open issue which prevented a new window from opening when viewing a PDF in the admin area
+* Bug - Fixed issue with product dropdown and radio button data showing the value instead of the name field.
+* Bug - Fixed incorrect URL pointing to signature in $form_data
 
 = 3.1.1 =
 * Bug - Users whose server only supports FTP file manipulation using the WP_Filesystem API moved the files into the wrong directory due to FTP usually being rooted to the Wordpress home directory. To fix this the plugin attempts to determine the FTP directory, otherwise assumes it is the WP base directory. 
