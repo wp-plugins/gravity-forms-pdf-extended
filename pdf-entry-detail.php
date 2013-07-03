@@ -185,7 +185,7 @@ if(!class_exists('GFPDFEntryDetail'))
 								$is_last = $count >= $field_count ? true : false;	
 								$last_row = $is_last ? " lastrow" : "";																			
 														
-								if(strlen($value) > 0 && (file_exists($server_folder.$value)) )
+								if(strlen($value) > 0 && (file_exists($server_folder.$value)) && (is_dir($server_folder.$value) !== true) )
 								{								
 									 $content = '<div class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div> <div class="value">' . $display_value . '</div></div>	';							
 									
@@ -380,10 +380,13 @@ if(!class_exists('GFPDFEntryDetail'))
 								$http_folder = RGFormsModel::get_upload_url_root(). 'signatures/';;
 								$folder = RGFormsModel::get_upload_root() . 'signatures/';
 								
-								if(file_exists($folder.$value) !== false)
+								if(file_exists($folder.$value) !== false && is_dir($folder.$value) !== true)
 								{
 									$form_array['signature'][] = '<img src="'. $folder.$value .'" alt="Signature" width="100" height="60" />';
 									$form_array['signature_details'][] = array('img' => '<img src="'. $folder.$value .'" alt="Signature" width="100" height="60" />',
+																	   'path' => $folder.$value,
+																	   'url' => $http_folder.$value);									
+									$form_array['signature_details_id'][$field['id']] = array('img' => '<img src="'. $folder.$value .'" alt="Signature" width="100" height="60" />',
 																	   'path' => $folder.$value,
 																	   'url' => $http_folder.$value);
 								}
@@ -436,13 +439,13 @@ if(!class_exists('GFPDFEntryDetail'))
 
 								$display = self::get_lead_field_display($field, $value, $lead["currency"]);
 								/* add data to field tag correctly */
-								$form_array['field'][$field['id'].'.'.$field['label']] = esc_html($display);
+								$form_array['field'][$field['id'].'.'.$field['label']] = $display;
 								
 								/* add ID incase want to use template on multiple duplicate forms with different field names */
-								$form_array['field'][$field['id']] = esc_html($display);
+								$form_array['field'][$field['id']] = $display;
 								
 								/* keep backwards compatibility */
-								$form_array['field'][$field['label']] = esc_html($display);						
+								$form_array['field'][$field['label']] = $display;						
 	
 							break;
 						}

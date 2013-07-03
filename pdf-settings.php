@@ -143,9 +143,11 @@ class GFPDF_Settings
                      <h2><?php _e('What\'s new in v'.PDF_EXTENDED_VERSION.'?' , "gravityformspdfextended") ?></h2>
   
 <ol>
+    <li><strong>Feature</strong> - Added signature_details_id to $form_data array which maps a signatures field ID to the array.</li>   
 	<li><strong>Extension</strong> - Added pre-PDF generator filter for use with extensions.</li>
 	<li><strong>Bug</strong> - Fixed issue with quotes in entry data breaking custom templates.</li>
-	<li><strong>Bug</strong> - Fixed issue with the view pdf feature in the admin area not using the new default configuration template, if set.</li>        
+	<li><strong>Bug</strong> - Fixed issue with the view pdf feature in the admin area not using the new default configuration template, if set.</li>  
+    <li><strong>Bug</strong> - Fixed issue with signature not being removed when only testing with file_exists(). Added second is_dir() test.</li>      
 </ol>  
   
 <h2>v3.1.2 Changelog</h2>   

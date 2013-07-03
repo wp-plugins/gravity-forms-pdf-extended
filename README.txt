@@ -79,9 +79,11 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 == Changelog ==
 
 = 3.1.3 =
+* Feature - Added signature_details_id to $form_data array which maps a signatures field ID to the array.
 * Extension - Added pre-PDF generator filter for use with extensions.
 * Bug - Fixed issue with quotes in entry data breaking custom templates.
 * Bug - Fixed issue with the view pdf feature in the admin area not using the new default configuration template, if set.
+* Bug - Fixed issue with signature not being removed when only testing with file_exists(). Added second is_dir() test.
 
 = 3.1.2 =
 * Feature - Added list array, file path, form ID and lead ID to $form_data array in custom templates
