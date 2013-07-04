@@ -88,7 +88,10 @@ class PDFRender
 	
 			return false;
 		}
-		return $return;
+		/*
+		 * Used in extensions to return the name of the PDF file when attaching to notifications
+		 */
+		return apply_filters('gfpdfe_return_pdf_path', $form_id, $lead_id);
 	}
 	
 	/**
