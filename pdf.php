@@ -342,16 +342,21 @@ class GFPDF_Core extends PDFGenerator
 		
 		$form_id = (int) $_GET['fid'];
 		$lead_id = (int) $_GET['lid'];		
-		$ip = PDF_Common::getRealIpAddr();
-
+		$ip = PDF_Common::getRealIpAddr(); 
+		
+		/*
+		 * Before setting up PDF options we will check if a configuration is found
+		 * If not, we will set up defaults defined in configuration.php
+		 */		
+		$all_indexes = $this->check_configuration($form_id);		
+		$index = $all_indexes[0];
+		
 		/*
 		 * Get the template name
 		 * Class: PDFGenerator
 		 * File: pdf-configuration-indexer.php
 		 */
-		$template = $this->get_template($form_id); 
-		$all_indexes = $this->get_config($form_id);
-		$index = $all_indexes[0];
+		$template = $this->get_template($form_id);		
 		
 		/*
 		 * Run if user is not logged in
@@ -462,10 +467,16 @@ class GFPDF_Core extends PDFGenerator
 			define('GF_FORM_ID', $form_id);
 			define('GF_LEAD_ID', $lead_id);				 
 		 }
-		
+
+		/*
+		 * Before setting up PDF options we will check if a configuration is found
+		 * If not, we will set up defaults defined in configuration.php
+		 */
+		 $gfpdf->check_configuration($form_id);		
+
 		/*
 		 * Check if form is in configuration
-		 */	 			
+		 */	 			 		 		
 		 if(!$config = $gfpdf->get_config($form_id))
 		 {
 			 return $notification;
@@ -556,7 +567,7 @@ class GFPDF_Core extends PDFGenerator
 	public static function get_form_notifications($form, $index)
 	{
 		global $gfpdf;
-		
+			
 		/*
 		 * Check if notification field even exists
 		 */
@@ -618,13 +629,8 @@ class GFPDF_Core extends PDFGenerator
 	 */
 	private function generate_pdf_parameters($index, $form_id, $lead_id, $template = '')
 	{
-		/*
-		 * Before setting up PDF options we will check if a configuration is found
-		 * If not, we will set up defaults defined in configuration.php
-		 */
-		 $index = $this->check_configuration($index, $form_id);
 
-		$pdf_name = (isset($this->configuration[$index]['filename']) && strlen($this->configuration[$index]['filename']) > 0) ? $this->get_pdf_name($index, $form_id, $lead_id) : PDF_Common::get_pdf_filename($form_id, $lead_id);
+		$pdf_name = (isset($this->configuration[$index]['filename']) && strlen($this->configuration[$index]['filename']) > 0) ? $this->get_pdf_name($index, $form_id, $lead_id) : PDF_Common::get_pdf_filename($form_id, $lead_id);	
 		$template = (isset($template) && strlen($template) > 0) ? $template : $this->get_template($index);	 
 		
 		$pdf_size = (isset($this->configuration[$index]['pdf_size']) && (is_array($this->configuration[$index]['pdf_size']) || strlen($this->configuration[$index]['pdf_size']) > 0)) ? $this->configuration[$index]['pdf_size'] : self::$default['pdf_size'];
@@ -656,7 +662,7 @@ class GFPDF_Core extends PDFGenerator
 			'rtl' => $rtl,
 			'premium' => $premium		 
 		);	
-				
+	
 		return $pdf_arguments;	
 	}	
 
@@ -664,20 +670,23 @@ class GFPDF_Core extends PDFGenerator
 	 * Checks if a configuration index is found
 	 * If not, we will set up defaults defined in configuration.php if they exist
 	 */
-	private function check_configuration($index, $form_id)
+	public function check_configuration($form_id)
 	{
+
 		global $gf_pdf_default_configuration;
 
 		/*
 		 * Check if configuration index already defined		 
 		 */
-		if(empty($index) || empty($this->index[$form_id]))
+		if(empty($this->index[$form_id]))
 		{
+
 			/*
 			 * Check if a default configuration is defined
 			 */			
 			if(is_array($gf_pdf_default_configuration) && sizeof($gf_pdf_default_configuration) > 0)
 			{
+
 				/*
 				 * Add form_id to the defualt configuration				 
 				 */
@@ -696,6 +705,10 @@ class GFPDF_Core extends PDFGenerator
 				 $this->assign_index($form_id, $index);				  
 				 
 			}
+		}
+		else
+		{
+			$index = $this->index[$form_id];	
 		}
 		return $index;	
 	}	

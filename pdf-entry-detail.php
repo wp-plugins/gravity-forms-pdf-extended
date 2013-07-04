@@ -191,6 +191,10 @@ if(!class_exists('GFPDFEntryDetail'))
 									
 									echo $content;
 								}
+								elseif($allow_display_empty_fields)
+								{
+									print '<div class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div></div>';
+								}
 							break;
 	
 							default:

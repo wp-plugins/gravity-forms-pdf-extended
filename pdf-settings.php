@@ -146,8 +146,9 @@ class GFPDF_Settings
     <li><strong>Feature</strong> - Added signature_details_id to $form_data array which maps a signatures field ID to the array.</li>   
 	<li><strong>Extension</strong> - Added pre-PDF generator filter for use with extensions.</li>
 	<li><strong>Bug</strong> - Fixed issue with quotes in entry data breaking custom templates.</li>
-	<li><strong>Bug</strong> - Fixed issue with the view pdf feature in the admin area not using the new default configuration template, if set.</li>  
+	<li><strong>Bug</strong> - ixed issue with the plugin not correctly using the new default configuration template, if set.</li>  
     <li><strong>Bug</strong> - Fixed issue with signature not being removed when only testing with file_exists(). Added second is_dir() test.</li>      
+        <li><strong>Bug</strong> - Fixed issue with empty signature field not displaying when option 'default-show-empty' is set.</li>   
 </ol>  
   
 <h2>v3.1.2 Changelog</h2>   

@@ -58,11 +58,11 @@ class PDFRender
 		/*
 		 * Add filter before we load the template file so we can stop the main process
 		 * Used in premium plugins
+		 * return true to cancel, otherwise run.
 		 */	 
-		 $return = false;
 		 $return = apply_filters('gfpdfe_pre_load_template', $form_id, $lead_id, $template, $id, $output, $filename, $arguments);
 
-		if($return === false)
+		if($return !== true)
 		{
 			/*
 			 * Get the tempalte HTML file
