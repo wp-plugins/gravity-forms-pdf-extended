@@ -267,10 +267,11 @@ class GFPDF_Core extends PDFGenerator
 		}
 		else
 		{				
+		
 			/**
 			 * Check if deployed new template files after update
 			 */ 
-			 if( (get_option('gf_pdf_extended_deploy') == 'no' && !rgpost('upgrade') && PDF_DEPLOY === true) || (file_exists(PDF_PLUGIN_DIR .'mPDF.zip' && !rgpost('upgrade'))) ) {
+			 if( (get_option('gf_pdf_extended_deploy') == 'no' && !rgpost('upgrade') && PDF_DEPLOY === true) || (file_exists(PDF_PLUGIN_DIR .'mPDF.zip') && !rgpost('upgrade') ) ) {
 				/*show warning message */
 				add_action('admin_notices', array("GFPDF_InstallUpdater", "gf_pdf_not_deployed")); 	
 			 }	

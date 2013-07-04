@@ -85,6 +85,7 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 * Bug - Fixed issue with the plugin not correctly using the new default configuration template, if set.
 * Bug - Fixed issue with signature not being removed correctly when only testing with file_exists(). Added second is_dir() test.
 * Bug - Fixed issue with empty signature field not displaying when option 'default-show-empty' is set.
+* Bug - Fixed initialisation prompt issue when the MPDF package wasn't unpacked.
 
 = 3.1.2 =
 * Feature - Added list array, file path, form ID and lead ID to $form_data array in custom templates

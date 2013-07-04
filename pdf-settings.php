@@ -148,7 +148,8 @@ class GFPDF_Settings
 	<li><strong>Bug</strong> - Fixed issue with quotes in entry data breaking custom templates.</li>
 	<li><strong>Bug</strong> - ixed issue with the plugin not correctly using the new default configuration template, if set.</li>  
     <li><strong>Bug</strong> - Fixed issue with signature not being removed when only testing with file_exists(). Added second is_dir() test.</li>      
-        <li><strong>Bug</strong> - Fixed issue with empty signature field not displaying when option 'default-show-empty' is set.</li>   
+    <li><strong>Bug</strong> - Fixed issue with empty signature field not displaying when option 'default-show-empty' is set.</li>   
+    <li><strong>Bug</strong> - Fixed initialisation prompt issue when the MPDF package wasn't unpacked.</li>   
 </ol>  
   
 <h2>v3.1.2 Changelog</h2>   
