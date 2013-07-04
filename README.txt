@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4
 Tested up to: 3.5.2
-Stable tag: 3.1.2
+Stable tag: 3.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,15 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.1.3 =
+* Feature - Added signature_details_id to $form_data array which maps a signatures field ID to the array.
+* Extension - Added pre-PDF generator filter for use with extensions.
+* Bug - Fixed issue with quotes in entry data breaking custom templates.
+* Bug - Fixed issue with the plugin not correctly using the new default configuration template, if set.
+* Bug - Fixed issue with signature not being removed correctly when only testing with file_exists(). Added second is_dir() test.
+* Bug - Fixed issue with empty signature field not displaying when option 'default-show-empty' is set.
+* Bug - Fixed initialisation prompt issue when the MPDF package wasn't unpacked.
 
 = 3.1.2 =
 * Feature - Added list array, file path, form ID and lead ID to $form_data array in custom templates
