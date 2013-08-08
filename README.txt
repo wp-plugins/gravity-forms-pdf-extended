@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.4
 Tested up to: 3.5.2
-Stable tag: 3.1.3
+Stable tag: 3.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,12 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.1.4 =
+* Bug - Fixed issue with plugin breaking website's when the Gravity Forms plugin wasn't activated.
+* Housekeeping - The plugin now only supports Gravity Forms 1.7 or higher and Wordpress 3.5 or higher.
+* Housekeeping - PDF template files can no longer be accessed directly. Instead, add &amp;html=1 to the end of your URL when viewing a PDF.
+* Extension - Added additional filters to allow the lead ID and notifications to be overridden.
 
 = 3.1.3 =
 * Feature - Added signature_details_id to $form_data array which maps a signatures field ID to the array.
@@ -233,5 +239,5 @@ For more details [view the 3.x.x online documentation](http://gravityformspdfext
 
 == Upgrade Notice ==
 
-= 3.1.1 =
-We've added custom font support, a number of configuration options for the default template, fixed a major compatibility issue with unzipping files and reworked the entire installation and upgrade manager. Note: Wordpress 3.4 is now the minimum supported version.
+= 3.1.4 =
+Gravity Forms PDF Extended now only supports Gravity Forms 1.7.x and Wordpress 3.5+. 
