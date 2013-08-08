@@ -7,6 +7,7 @@ if(!class_exists('GFPDFEntryDetail'))
 		public static function lead_detail_grid($form, $lead, $allow_display_empty_fields=false, $show_html=false, $show_page_name=false, $return=false){
 			$form_id = $form["id"];
 			$results = array();
+			
 			if($return === true)
 			{
 				$results['title'] = '<h2 id="details" class="default">'. $form["title"] .'</h2>';
@@ -97,7 +98,7 @@ if(!class_exists('GFPDFEntryDetail'))
 	
 									if($return === true)
 									{
-										$return['field'][] = $content;														
+										$results['field'][] = $content;														
 									}
 									else
 									{
@@ -119,7 +120,7 @@ if(!class_exists('GFPDFEntryDetail'))
 									
 									if($return === true)
 									{
-										$return['field'][] = $content;	
+										$results['field'][] = $content;	
 									}
 									else
 									{
@@ -130,7 +131,7 @@ if(!class_exists('GFPDFEntryDetail'))
 								{
 									if($return === true)
 									{
-										$return['field'][] = '<div class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div></div>';
+										$results['field'][] = '<div class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div></div>';
 									}
 									else
 									{
@@ -166,8 +167,8 @@ if(!class_exists('GFPDFEntryDetail'))
 									$content = apply_filters("gform_field_content", $content, $field, $value, $lead["id"], $form["id"]);
 	
 									if($return === true)
-									{
-										$return['field'][] = $content;
+									{										
+										$results['field'][] = $content;
 									}
 									else
 									{
@@ -185,7 +186,7 @@ if(!class_exists('GFPDFEntryDetail'))
 						{
 							ob_start();
 							self::product_table($form, $lead);	
-							$return['field'][] = ob_get_contents();							
+							$results['field'][] = ob_get_contents();							
 							ob_end_clean();							
 						}
 						else
@@ -193,6 +194,11 @@ if(!class_exists('GFPDFEntryDetail'))
 						   self::product_table($form, $lead);
 						}
 						
+					}
+					
+					if($return === true)
+					{
+						return $results;							
 					}
 					?>
 				</div>
