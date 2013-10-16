@@ -2,9 +2,9 @@
 Contributors: blueliquiddesigns
 Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
-Requires at least: 3.4
-Tested up to: 3.5.2
-Stable tag: 3.1.4
+Requires at least: 3.5
+Tested up to: 3.6
+Stable tag: 3.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,8 +52,8 @@ Along with the above features, the new PDF features include:
 **Software Requirements**
 
 1. [Purchase and install Gravity Forms](https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=235154)
-2. Wordpress 3.4+
-3. Gravity Forms 1.6.9+
+2. Wordpress 3.5+
+3. Gravity Forms 1.7+
 
 **Documentation and Support**
 
@@ -77,6 +77,17 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.2.0 =
+* Feature - Can now view multiple PDFs assigned to a single form via the admin area. Note: You must provide a unique 'filename' parameter in configuration.php for multiple PDFs assigned to a single form. 
+* Feature - You can exclude a field from the default templates using the class name 'exclude'. See our [FAQ topic](http://gravityformspdfextended.com/faq/can-exclude-field-showing-pdf/) for more details.
+* Bug - Fixed issue viewing own PDF entry when logged in as anything lower than editor.
+* Bug - Fixed data return bug in pdf-entry-details.php that was preventing all data returning correctly.
+* Bug - Fixed PHP Warning when using products with no options
+* Bug - Fixed issue with invalid characters being added to the PDF filename. Most notably the date mergetag.
+* Bug - Limit filename length to 150 characters which should work on the majority of web servers.
+* Bug - Fixed problem sending duplicate PDF when using mass resend notification feature
+* Depreciated - Removed GF_FORM_ID and GF_LEAD_ID constants which were used in v2.x.x of the software. Ensure you follow [v2.x.x upgrade guide](http://gravityformspdfextended.com/documentation-v3-x-x/v3-0-0-migration-guide/) to your templates before upgrading.
 
 = 3.1.4 =
 * Bug - Fixed issue with plugin breaking website's when the Gravity Forms plugin wasn't activated.
@@ -239,5 +250,6 @@ For more details [view the 3.x.x online documentation](http://gravityformspdfext
 
 == Upgrade Notice ==
 
-= 3.1.4 =
-Gravity Forms PDF Extended now only supports Gravity Forms 1.7.x and Wordpress 3.5+. 
+= 3.3.0 =
+
+Now support multiple PDF templates in admin area, plus a number of bug fixes. Gravity Forms PDF Extended only supports Gravity Forms 1.7.x+ and Wordpress 3.5+. V2.x.x PDF templates are no longer supported; [see upgrade guide for details](http://gravityformspdfextended.com/documentation-v3-x-x/v3-0-0-migration-guide/).  
