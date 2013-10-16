@@ -250,6 +250,6 @@ For more details [view the 3.x.x online documentation](http://gravityformspdfext
 
 == Upgrade Notice ==
 
-= 3.2.5 =
+= 3.3.0 =
 
 Now support multiple PDF templates in admin area, plus a number of bug fixes. Gravity Forms PDF Extended only supports Gravity Forms 1.7.x+ and Wordpress 3.5+. V2.x.x PDF templates are no longer supported; [see upgrade guide for details](http://gravityformspdfextended.com/documentation-v3-x-x/v3-0-0-migration-guide/).  
