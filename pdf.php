@@ -728,7 +728,7 @@ class GFPDF_Core extends PDFGenerator
 			}
 			else
 			{
-				$index = $this->index[$form_id];	
+				$index = $this->index[$form_id][0];	
 			}
 		}
 		return $index;	
