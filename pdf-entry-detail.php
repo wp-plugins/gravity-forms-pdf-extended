@@ -32,7 +32,7 @@ if(!class_exists('GFPDFEntryDetail'))
 						/*
 						 * Check if this field has been excluded from the list
 						 */
-						if(strpos($field['cssClass'], 'exclude') !== false)
+						if(isset($field['cssClass']) && strpos($field['cssClass'], 'exclude') !== false)
 						{
 							/* skip this field */
 							continue;	
