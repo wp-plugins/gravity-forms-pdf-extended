@@ -95,7 +95,7 @@ class GFPDF_Settings_Model extends GFPDF_Settings
 		  * Sniff the options to see if it exists
 		  */
 		  $gfpdfe_data->is_initialised = false;
-		  if( (get_option('gf_pdf_extended_deploy') == 'yes') && (get_option('gf_pdf_extended_installed') == 'installed') && (is_dir(PDF_TEMPLATE_LOCATION) ) && get_option('gf_pdf_extended_version') == PDF_EXTENDED_VERSION )
+		  if( (get_option('gf_pdf_extended_deploy') == 'yes') && (get_option('gf_pdf_extended_installed') == 'installed') && (is_dir(PDF_TEMPLATE_LOCATION) ) && get_option('gf_pdf_extended_version') == PDF_EXTENDED_VERSION && !file_exists(PDF_PLUGIN_DIR .'mPDF.zip') )
 		  {
 		 		$gfpdfe_data->is_initialised = true;
 		  }
