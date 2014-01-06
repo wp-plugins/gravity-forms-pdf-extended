@@ -3,8 +3,8 @@ Contributors: blueliquiddesigns
 Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 3.2.0
+Tested up to: 3.8
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,24 +12,23 @@ Gravity Forms PDF Extended allows you to save/view/download a PDF from the front
 
 == Description ==
 
-As of Gravity Forms PDF Extended v3.0.0 we have removed the DOMPDF package from our plugin and integrated the more advanced mPDF system. Along with a new HTML to PDF generator, we've rewritten the entire plugin's base code to make it more user friendly to both hobbyists and rock star web developers. Configuration time is cut in half and advanced features like adding security features is now accessible to users who have little experience with PHP.
+Gravity Forms PDF Extended is a powerful developer tool for creating PDF documents using form data captured from Gravity Forms. While the software is targeted at web developers, we've attempted to make it user friendly for hobbyists and DIY business owners. The basic setup can be done in minutes, and there is a huge array of options to configure the PDF as you see fit. 
 
-**Features**
+**Gravity Form Features**
 
 * Save PDF File on user submission of a Gravity Form so it can be attached to a notification
 * Customise the PDF template without affecting the core Gravity Form Plugin
 * Multiple PDF Templates
 * Custom PDF Name
 * Output individual form fields in the template - like MERGETAGS.
-* View and download a PDF via the administrator interface
-* Simple function to output PDF via template / plugin
+* View and download a PDF via the administrator interface or after a user submits their form
 * Works with Gravity Forms Signature Add-On
 
 **PDF Features**
 
-Along with the above features, the new PDF features include:
+Along with the above, the PDF software includes powerful feature such as:
 
-* Language Support - almost all languages are supported including RTL (right to left) languages like Arabic and Hebrew and CJK languages - Chinese, Japanese and Korean.
+* Language Support - almost all languages are supported including RTL (right to left) languages like Arabic, Hebrew and CJK languages - Chinese, Japanese and Korean.
 * HTML Page Numbering
 * Odd and even paging with mirrored margins (most commonly used in printing).
 * Nested Tables
@@ -62,9 +61,10 @@ To view the Development Documentation head to [http://www.gravityformspdfextende
 == Installation ==
 
 1. Upload this plugin to your website and activate it
-2. Create a form in Gravity Forms and configure notifications
-3. Get the Form ID and follow the steps below in [the configuration section](http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/)
-4. Modify the PDF template file ([see the advanced templating section in the documentation](http://gravityformspdfextended.com/documentation-v3-x-x/templates/)) inside your active theme's PDF_EXTENDED_TEMPLATES/ folder.
+2. Head to Forms -> Settings -> PDF to initialise the plugin.
+3. Create a form in Gravity Forms and configure notifications
+4. Get the Form ID and follow the steps below in [the configuration section](http://gravityformspdfextended.com/documentation-v3-x-x/installation-and-configuration/)
+5. Modify the PDF template file ([see the advanced templating section in the documentation](http://gravityformspdfextended.com/documentation-v3-x-x/templates/)) inside your active theme's PDF_EXTENDED_TEMPLATES/ folder.
 
 
 == Frequently Asked Questions ==
@@ -77,6 +77,26 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.3.0 =
+* Feature - Overhauled the initialisation process so that the software better reviews the host for potential problems before initialisation. This should help debug issues and make users aware there could be a problem before they begin using the software.
+* Feature - Overhauled the settings page to make it easier to access features of the software
+* Feature - Added a Support tab to the settings page which allows users to securely (over HTTPS) submit a support ticket to the Gravity Form PDF Extended support desk
+* Feature - Changed select, multiselect and radio fields so that the default templates use the name rather than the value. $form_data now also includes the name and values for all these fields.
+* Feature - $form_data now includes all miscellaneous lead information in the $form_data['misc'] array.
+* Feature - $form_data now contains 24 and 12 hour time of entry submission.
+* Feature - Added localisation support
+* Compatibility - Added new multi-upload support which was added in Gravity Forms 1.8.
+* Bug - Added 'aid' parametre to the PDF url when multiple configuration nodes present on a single form
+* Bug - Fixed issue when Gravity Forms in No Conflict Mode
+* Bug - Font config.php's array keys now in lower case
+* Housekeeping - Moved all initialisation files to a folder called 'initialisation'.
+* Housekeeping - Renamed the configuration.php file in the plugin folder to configuration.php.example to alleviate confusion for developers who unwittingly modify the plugin configuration file instead of the file in their active theme's PDF_EXTENDED_TEMPLATE folder.
+* Housekeeping - Updated the plugin file system to a more MVC-style approach, with model and view folders.
+* Housekeeping - Removed ability to directly access default and example template files.
+* Housekeeping - Fixed PHP notices in default templates related to the default template-only configuration options
+* Housekeeping - Update core styles to match Wordpress 3.8/Gravity Forms 1.8.
+* Housekeeping - Updated header/footer examples to use @page in example.
 
 = 3.2.0 =
 * Feature - Can now view multiple PDFs assigned to a single form via the admin area. Note: You must provide a unique 'filename' parameter in configuration.php for multiple PDFs assigned to a single form. 
@@ -252,4 +272,4 @@ For more details [view the 3.x.x online documentation](http://gravityformspdfext
 
 = 3.3.0 =
 
-Now support multiple PDF templates in admin area, plus a number of bug fixes. Gravity Forms PDF Extended only supports Gravity Forms 1.7.x+ and Wordpress 3.5+. V2.x.x PDF templates are no longer supported; [see upgrade guide for details](http://gravityformspdfextended.com/documentation-v3-x-x/v3-0-0-migration-guide/).  
+Support for Wordpress 3.8 and Gravity Forms 1.8. Overhauled the settings page and added a secure in-built support form. Fixed a number of bugs and made modifications at the request of the community. 
