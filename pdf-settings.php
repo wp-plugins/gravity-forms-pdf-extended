@@ -32,9 +32,9 @@ class GFPDF_Settings
 			/* 
 			 * Tell Gravity Forms to initiate our settings page
 			 * Using the following Class/Model
-			 */
-			 
-			RGForms::add_settings_page('PDF', array(self::$model, 'gfpdf_settings_page'));			 
+			 */ 
+			 RGForms::add_settings_page('PDF', array(self::$model, 'gfpdf_settings_page'));
+				 
 		}			
 	}
 	

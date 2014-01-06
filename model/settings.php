@@ -15,16 +15,15 @@ class GFPDF_Settings_Model extends GFPDF_Settings
 	 * Construct
 	 */
 	 public function __construct()
-	 {
+	 {		 
 		/*
 		 * Let's check if the web server is going to be compatible 
 		 */ 
-		 $this->check_compatibility();			 
-		 $this->support_navigation();	 
+		 $this->check_compatibility();			 	 
 	 }
 	 
 	 public function support_navigation()
-	 {
+	 {		 
 			$this->navigation = array(
 				10 => array(
 					'name' => 'Initialisation',
@@ -48,7 +47,8 @@ class GFPDF_Settings_Model extends GFPDF_Settings
 			/*
 			 * Allow additional navigation to be added to the settings page
 			 */
-			$this->navigiation = apply_filters( 'pdf_extended_settings_navigiation', $this->navigation );
+			$this->navigation = apply_filters( 'pdf_extended_settings_navigation', $this->navigation );
+			
 	 }
 	 
 	 public function check_compatibility()
@@ -278,7 +278,7 @@ class GFPDF_Settings_Model extends GFPDF_Settings
 	 * Shows the GF PDF Extended settings page
 	 */		
 	public function gfpdf_settings_page() 
-	{ 
+	{ 	
 		global $gfpdfe_data;
 	    /*
 		 * Run the page's configuration/routing options
@@ -287,6 +287,8 @@ class GFPDF_Settings_Model extends GFPDF_Settings
 		{
 			return;	
 		}
+		
+		 $this->support_navigation();
 		
 		 include PDF_PLUGIN_DIR . 'view/settings.php';				 		 
 		  
