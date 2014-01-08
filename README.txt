@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 3.3.0
+Stable tag: 3.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,9 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.3.1 =
+* Bug - $form_data['list'] was mapped using an incremental key instead of via the field ID
 
 = 3.3.0 =
 * Feature - Overhauled the initialisation process so that the software better reviews the host for potential problems before initialisation. This should help debug issues and make users aware there could be a problem before they begin using the software.
