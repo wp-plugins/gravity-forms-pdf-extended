@@ -22,7 +22,7 @@
     
     <h3>3.3.3</h3>
     <ul>
-    	<li>Bug - Correctly call javascript to control admin area drop down</li>
+    	<li>Bug - Correctly call javascript to control admin area 'View PDFs' drop down</li>
         <li>Bug - Some users still reported incorrect RAM. Convert MB/KB/GB values to M/K/G as per the PHP documentation.</li>
         <li>Housekeeping - Show initilisation prompt on all admin area pages instead of only on the Gravity Forms pages</li>
     </ul>
