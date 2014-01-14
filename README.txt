@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 3.3.2.1
+Stable tag: 3.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,7 +45,7 @@ Along with the above, the PDF software includes powerful feature such as:
 
 1. PHP 5+
 2. MB String
-3. GD Library (optional)
+3. GD Library
 4. RAM:	Recommended: 128MB. Minimum: 64MB.
 
 **Software Requirements**
@@ -78,6 +78,10 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 
 == Changelog ==
 
+= 3.3.3 =
+* Bug - Correctly call javascript to control admin area 'View PDFs' drop down
+* Bug - Some users still reported incorrect RAM. Convert MB/KB/GB values to M/K/G as per the PHP documentation.
+* Housekeeping - Show initilisation prompt on all admin area pages instead of only on the Gravity Forms pages
 
 = 3.3.2.1 =
 * Bug - Incorrectly showing assigned RAM to website
