@@ -241,8 +241,6 @@ class GFPDF_Core extends PDFGenerator
 			{
 				update_option('gf_pdf_extended_deploy', 'no');
 				/* redirect */
-				Header('Location: '.PDF_SETTINGS_URL);
-				exit;
 			}
 			
 			/*

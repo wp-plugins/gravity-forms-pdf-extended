@@ -23,6 +23,7 @@
     <h3>3.3.4</h3>
     <ul>
     	<li>Bug - Fixed issue linking to PDF from front end</li>
+        <li>Housekeeping - Removed autoredirect to initialisation page</li>
     </ul>
     <h3>3.3.3</h3>
     <ul>

@@ -80,6 +80,7 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 
 = 3.3.4 =
 * Bug - Fixed issue linking to PDF from front end 
+* Housekeeping - Removed autoredirect to initialisation page
 
 = 3.3.3 =
 * Bug - Correctly call javascript to control admin area 'View PDFs' drop down
