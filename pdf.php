@@ -51,7 +51,7 @@ GNU General Public License for more details.
  /*
   * Do we need to deploy template files this edition? If yes set to true. 
   */
-  if(!defined('PDF_DEPLOY')) { define('PDF_DEPLOY', false); } 
+  if(!defined('PDF_DEPLOY')) { define('PDF_DEPLOY', true); } 
 
 /* 
  * Include the core helper files
@@ -235,7 +235,7 @@ class GFPDF_Core extends PDFGenerator
 			/* 
 			 * Check if database plugin version matches current plugin version and updates if needed
 			 */
-			if(get_option('gf_pdf_extended_version') != PDF_EXTENDED_VERSION && 
+			if(PDF_DEPLOY === true && get_option('gf_pdf_extended_version') != PDF_EXTENDED_VERSION && 
 			  (((isset($_GET['page']) && $_GET['page'] != 'gf_settings') && (isset($_GET['addon']) && $_GET['addon'] != 'PDF')) 
 			  || empty($_GET['page'])) )
 			{
