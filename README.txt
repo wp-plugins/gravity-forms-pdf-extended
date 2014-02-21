@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 3.3.4
+Stable tag: 3.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,7 +91,7 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 * Feature - Added 'save' configuration option so PDFs are saved to the local disk when 'notifications' aren't enabled
 * Feature - Added 'dpi' configuration option to modify the PDF image DPI. Default 96dpi. Use 300dpi for printing.
 * Feature - Added PDF/A1-b compliance option. Enable with 'pdfa1b' => true and 'pdfa1b_force' => true. See http://mpdf1.com/manual/index.php?tid=420&searchstring=pdf/a1-b for more details.
-* Feature - Added PDF/X1-a compliance option. Enable with 'pdfx1a' => true and 'pdfx1a_force' => true. See http://mpdf1.com/manual/index.php?tid=481&searchstring=pdf/a1-b for more details.
+* Feature - Added PDF/X1-a compliance option. Enable with 'pdfx1a' => true and 'pdfx1a_force' => true. See http://mpdf1.com/manual/index.php?tid=481&searchstring=pdf/x-1a for more details.
 * Feature - Added new constant option 'PDF_REPACK_FONT' which when enabled may improve function with some PostScript printers (disabled by default)
 
 * Housekeeping - Modified mPDF functions Image() and purify_utf8_text() to validate the input data so we don't have to do it every time through the template.

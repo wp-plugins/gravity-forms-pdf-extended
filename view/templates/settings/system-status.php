@@ -110,7 +110,7 @@
                     <p><label><?php _e('mPDF Temporary Directory Writable?', 'pdfextended'); ?></label> <strong><?php ($gfpdfe_data->can_write_pdf_temp_dir  === true) ? _e('Yes', 'pdfextended') : _e('No', 'pdfextended'); ?></strong><span class="<?php echo ($gfpdfe_data->can_write_pdf_temp_dir === true) ? 'icon-ok-sign' : 'icon-warning-sign'; ?>"></span>
                     <?php if($gfpdfe_data->can_write_pdf_temp_dir === false): ?>
                     <br />
-                    <span class="details"><?php _e('mPDF temporary directory not writable. Disabling table cache. Note: memory usage will be increased.', 'pdfextended'); ?></span>
+                    <span class="details"><?php _e('mPDF temporary directory not writable (mPDF/tmp/). Memory and image processing time will increase.', 'pdfextended'); ?></span>
                     <?php endif; ?>
                     </p>                             
                     
