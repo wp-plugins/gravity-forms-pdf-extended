@@ -685,25 +685,36 @@ class GFPDF_Core_Model
 			/* if there are multiple indexes for a form we will look for the one with the matching template */
 			if(sizeof($gfpdf->index[$form_id]) > 1 && strlen($template) > 0 )
 			{
+
+				/*
+				 * Check if $_GET['aid'] present which will give us the index when multi templates assigned
+				 */
+				 if(isset($_GET['aid']) && (int) $_GET['aid'] > 0)
+				 {
+					$aid = (int) $_GET['aid'] - 1;
+					if(isset($gfpdf->index[$form_id][$aid]))
+					{
+						return $gfpdf->index[$form_id][$aid];
+					}					
+				 }				
+
+				/*
+				 * If aid not present we'll match against the template
+				 * This is usually the case when using a user-generated link
+				 */
 				$index = false;
 				foreach($gfpdf->index[$form_id] as $i)
 				{
 					if(isset($gfpdf->configuration[$i]['template']) && $gfpdf->configuration[$i]['template'] == $template)
 					{
-						$index = $i;	
+						/* matched by template */
+						return $i;	
 					}
-				}
-				
-				if($index === false)
-				{
-					$index = $gfpdf->index[$form_id][0];	
-				}
+				}				
 			}
-			else
-			{
-				/* there aren't multiples so just return 0 */
-				$index = $gfpdf->index[$form_id][0];	
-			}
+			
+			/* there aren't multiples so just return first node */
+			return $gfpdf->index[$form_id][0];	
 		}
 		return $index;	
 	}		 	   

@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 3.4.0
+Stable tag: 3.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,7 +103,6 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 * Housekeeping - Center aligned Survey Likery field results
 * Housekeeping - Partially refactored the pdf-entry-detail.php code
 * Housekeeping - All default and example templates have been tidied. This won't affect custom templates.
-* Housekeeping - Minify javascript and css files
 
 * Bug - Fixed issue with PDF not attaching to notification using Paypal's delayed notification feature
 * Bug - Fixed strict standard warning about calling GFPDF_Settings::settings_page();
@@ -111,6 +110,8 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 * Bug - Fixed issue with Gravity Form Post Category field causing fatal error generating PDF
 * Bug - Fixed number field formatting issue when displaying on PDF.
 * Bug - Do additional check for PHP's MB_String regex functions before initialising
+* Bug - Fixed problem with multiple nodes assigned to a form using the same template
+* Bug - Fixed path to fallback templates when not found
 
 = 3.3.4 =
 * Bug - Fixed issue linking to PDF from front end 

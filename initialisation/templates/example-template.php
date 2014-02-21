@@ -73,25 +73,25 @@ $form = RGFormsModel::get_form_meta($form_id);
 	            <p class="whom_concern_intro">Dear User,</p>
 
 				<p class="body_text">Gravity Forms PDF Extended allows you to directly access Gravity Form field data so you can create custom PDFs like this one.
-				If you haven't reviewed our five part installation and configuration guide yet, we recommend <a href="http://gravityformspdfextended.com/documentation-v3-x-x/standard-configuration/">taking a look</a>.
-				There's also a <a href="http://gravityformspdfextended.com/documentation-v3-x-x/configuration-options-examples/">large number of configuration options</a> that can be applied to any PDF.</p>
+				If you haven't reviewed our five part installation and configuration guide yet, we recommend <a target="_blank" href="http://gravityformspdfextended.com/documentation-v3-x-x/standard-configuration/">taking a look</a>.
+				There's also a <a target="_blank" href="http://gravityformspdfextended.com/documentation-v3-x-x/configuration-options-examples/">large number of configuration options</a> that can be applied to any PDF.</p>
 				</p>
 
 				<p class="body_text">Now you've got an understanding on configuring the software, let's take a look at custom templates. 
-				To start with, you'll want to copy and rename one of the <em>example-</em> template files in your active theme's PDF_EXTENDED_TEMPLATES directory. <strong>Note: Every time the software is initialised the example template's are overridden. Don't modify them directly.</strong> </p>				
+				To start with, you'll want to copy and rename one of the <em>example-</em> template files in your active theme's PDF_EXTENDED_TEMPLATES directory. <strong>Note: Every time the software is initialised the example templates are overridden. Don't modify them directly.</strong> </p>				
 
-				<p class="body_text">Once copied, go to your Wordpress Dashboard and navigate to Forms -> Entries and click the View PDF button on one of your entries. The default-template.php should open by default if you haven't assigned a configuration node to the form. 
+				<p class="body_text">Once copied, go to your Wordpress Dashboard and navigate to Forms -> Entries and click the View PDF button on one of your entries. If you haven't assigned a custom template to the form, the default-template.php should open. 
 				 If you change <em>default-template.php</em> in the URL to the new template you just made it will generate a PDF based off that file.</p>
 				<p class="body_text">Once you have your new template file open in your browser window you can access the $form_data array (which contains all the Gravity Form entry data) by appending the URL with &amp;data=1. <strong>Note: this only works if you copied a template file with example- in the name.</strong></p>
 				<p><strong>Example:</strong> http://www.yourdomain.com/?gf_pdf=1&amp;fid=2&amp;lid=6&amp;template=new-example-template.php&amp;data=1             </p>
 				
-				<p>For more information about custom templates  <a href="http://gravityformspdfextended.com/documentation-v3-x-x/templates/getting-started/">review the plugin's documentation</a><br /><br />
+				<p>For more information about custom templates  <a target="_blank" href="http://gravityformspdfextended.com/documentation-v3-x-x/templates/getting-started/">review the plugin's documentation</a><br /><br />
 	            </p>
 				<p class="signature">
 	                Jake Jackson<br />
 	                <img src="<?php echo PDF_PLUGIN_DIR ?>resources/images/signature.png" alt="Signature" width="100" height="60" /><br />
 	                Developer, Gravity Forms PDF Extended<br />
-	                <a href="http://www.gravityformspdfextended.com">www.gravityformspdfextended.com</a>
+	                <a target="_blank" href="http://www.gravityformspdfextended.com">www.gravityformspdfextended.com</a>
 	            </p>
            
            </div>          

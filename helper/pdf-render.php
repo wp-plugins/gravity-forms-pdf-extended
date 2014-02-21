@@ -113,14 +113,14 @@ class PDFRender
 			 */
 			if(file_exists(PDF_PLUGIN_DIR."templates/" . $template))
 			{
-				return PDF_Common::get_html_template(PDF_PLUGIN_DIR."templates/" . $template);
+				return PDF_Common::get_html_template(PDF_PLUGIN_DIR."initialisation/templates/" . $template);
 			}
 			/*
 			 * If template not found then we will resort to the default template.
 			 */			
 			else
-			{
-				return PDF_Common::get_html_template(PDF_PLUGIN_DIR."templates/" . PDFGenerator::$default['template']);
+			{				
+				return PDF_Common::get_html_template(PDF_PLUGIN_DIR."initialisation/templates/" . PDFGenerator::$default['template']);
 			}
 		}		
 	}
@@ -138,11 +138,11 @@ class PDFRender
 		 */
 		 if(!class_exists('mPDF'))
 		 {
-			 if(is_defined('PDF_ENABLE_MPDF_TINY') && PDF_ENABLE_MPDF_TINY === true)
+			 if(defined('PDF_ENABLE_MPDF_TINY') && PDF_ENABLE_MPDF_TINY === true)
 			 {
 					include PDF_PLUGIN_DIR .'/mPDF/mpdf-extra-lite.php';			 
 			 }
-			 elseif(is_defined('PDF_ENABLE_MPDF_LITE') && PDF_ENABLE_MPDF_LITE === true)
+			 elseif(defined('PDF_ENABLE_MPDF_LITE') && PDF_ENABLE_MPDF_LITE === true)
 			 {
 					include PDF_PLUGIN_DIR .'/mPDF/mpdf-lite.php';			 
 			 }
@@ -179,7 +179,7 @@ class PDFRender
 		 * Automatically detect fonts and substitue as needed
 		 */
 		$mpdf->SetAutoFont(AUTOFONT_ALL);
-		(is_defined('PDF_DISABLE_FONT_SUBSTITUTION') && PDF_DISABLE_FONT_SUBSTITUTION === false) ? $mpdf->useSubstitutions = true : $mpdf->useSubstitutions = false;
+		(defined('PDF_DISABLE_FONT_SUBSTITUTION') && PDF_DISABLE_FONT_SUBSTITUTION === false) ? $mpdf->useSubstitutions = true : $mpdf->useSubstitutions = false;
 		
 		/*
 		 * Set Creator Meta Data
@@ -206,7 +206,7 @@ class PDFRender
 		/*
 		 * Set up security if user requested
 		 */ 
-		 if($arguments['security'] === true && ($arguments['pdfa1b'] === false || $arguments['pdfx1a'] === false ) )
+		 if($arguments['security'] === true && $arguments['pdfa1b'] === false && $arguments['pdfx1a'] === false  )
 		 {
 				$password = (strlen($arguments['pdf_password']) > 0) ? $arguments['pdf_password'] : '';
 				$master_password = (strlen($arguments['pdf_password']) > 0) ? $arguments['pdf_password'] : null;

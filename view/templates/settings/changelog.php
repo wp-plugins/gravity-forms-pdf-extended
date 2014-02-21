@@ -46,7 +46,6 @@
     <li>Housekeeping - Center aligned Survey Likery field results</li>
     <li>Housekeeping - Partially refactored the pdf-entry-detail.php code</li>
     <li>Housekeeping - All default and example templates have been tidied. This won't affect custom templates.</li>
-    <li>Housekeeping - Minify javascript and css files</li>
 
     <li>Bug - Fixed issue with PDF not attaching to notification using Paypal's delayed notification feature</li>
     <li>Bug - Fixed strict standard warning about calling GFPDF_Settings::settings_page();</li>
@@ -54,6 +53,8 @@
     <li>Bug - Fixed issue with Gravity Form Post Category field causing fatal error generating PDF</li>
     <li>Bug - Fixed number field formatting issue when displaying on PDF.</li>
     <li>Bug - Do additional check for PHP's MB_String regex functions before initialising</li>
+    <li>Bug - Fixed problem with multiple nodes assigned to a form using the same template</li>
+    <li>Bug - Fixed path to fallback templates when not found</li>
     </ul> 
 
     <h3>3.3.4</h3>

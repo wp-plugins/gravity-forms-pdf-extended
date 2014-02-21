@@ -206,7 +206,7 @@ class GFPDF_Core extends PDFGenerator
 		/* Check if on the entries page and output javascript */
 		if(is_admin() && rgget('page') == 'gf_entries')
 		{
-			wp_enqueue_script( 'gfpdfeentries', PDF_PLUGIN_URL . 'resources/javascript/entries-admin.min.js', array('jquery') );		
+			wp_enqueue_script( 'gfpdfeentries', PDF_PLUGIN_URL . 'resources/javascript/entries-admin.js', array('jquery') );		
 		}		
 		
 		/*
@@ -324,14 +324,14 @@ class GFPDF_Core extends PDFGenerator
 		 * Configure the settings page
 		 */
 		 
-		  wp_enqueue_style( 'pdfextended-admin-styles', PDF_PLUGIN_URL . 'resources/css/admin-styles.min.css' );		
+		  wp_enqueue_style( 'pdfextended-admin-styles', PDF_PLUGIN_URL . 'resources/css/admin-styles.css' );		
 		  wp_enqueue_style( 'pdfextended-font-styles', PDF_PLUGIN_URL . 'resources/css/font-awesome.min.css' );	
 		  
 		  global $wp_styles;
 		  wp_enqueue_style( 'pdfextended-font-styles-ie', PDF_PLUGIN_URL . 'resources/css/font-awesome-ie7.min.css' );		
 		  $wp_styles->add_data( 'pdfextended-font-styles-ie', 'conditional', 'IE 7' ); 
 		  
-		  wp_enqueue_script( 'pdfextended-settings-script', PDF_PLUGIN_URL . 'resources/javascript/admin.min.js' );	
+		  wp_enqueue_script( 'pdfextended-settings-script', PDF_PLUGIN_URL . 'resources/javascript/admin.js' );	
 		 
 		 /*
 		  * Register our scripts/styles with Gravity Forms to prevent them being removed in no conflict mode
