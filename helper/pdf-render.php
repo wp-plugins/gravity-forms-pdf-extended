@@ -219,18 +219,12 @@ class PDFRender
 		 if($arguments['pdfa1b'] === true)
 		 {
 		 		$mpdf->PDFA = true;
-		 		if($arguments['pdfa1b_force'] === true)
-		 		{
-		 				$mpdf->PDFAauto = true;
-		 		}
+		 		$mpdf->PDFAauto = true;
 		 }
 		 else if($arguments['pdfx1a'] === true)  /* PDF/X-1a support added in v3.4.0 */
 		 {
 		 		$mpdf->PDFX = true;
-			 	if($arguments['pdfx1a_force'] === true)
-			 	{
-			 			$mpdf->PDFXauto = true;
-			 	}
+			 	$mpdf->PDFXauto = true;
 		 }
 		 
 		 /*

@@ -600,12 +600,10 @@ class GFPDF_Core_Model
 		$dpi = (isset($config['dpi']) && (int) $config['dpi'] > 0) ? (int) $config['dpi'] : false;
 		
 		/* added in v3.4.0 */
-		$pdfa1b = (isset($config['pdfa1b']) && $config['pdfa1b'] === true) ? true : false;
-		$pdfa1b_force = (isset($config['pdfa1b_force']) && $config['pdfa1b_force'] === true) ? true : false;
+		$pdfa1b = (isset($config['pdfa1b']) && $config['pdfa1b'] === true) ? true : false;		
 
 		/* added in v3.4.0 */
-		$pdfx1a = (isset($config['pdfx1a']) && $config['pdfx1a'] === true) ? true : false;
-		$pdfx1a_force = (isset($config['pdfx1a_force']) && $config['pdfx1a_force'] === true) ? true : false;
+		$pdfx1a = (isset($config['pdfx1a']) && $config['pdfx1a'] === true) ? true : false;		
 
 		/*
 		 * Validate privileges 
@@ -631,10 +629,8 @@ class GFPDF_Core_Model
 			'premium'             => $premium,
 			'dpi'                 => $dpi,	
 
-			'pdfa1b'			  => $pdfa1b,
-			'pdfa1b_force'		  => $pdfa1b_force,
-			'pdfx1a'			  => $pdfx1a, 
-			'pdfx1a_force'		  => $pdfx1a_force,
+			'pdfa1b'			  => $pdfa1b,			
+			'pdfx1a'			  => $pdfx1a, 			
 		);	
 	
 		return $pdf_arguments;	

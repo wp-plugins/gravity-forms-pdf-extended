@@ -319,26 +319,20 @@
   * Important: The software is not guaranteed to produce fully PDF/A1-b compliant files in all circumstances. It is the users responsibility to check compliance if this is essential.
   *
   * Usage:
-  * We've added two new configuration options 'pdfa1b' and 'pdfa1b_force'. If you just set 'pdfa1b' => true and don't add the 'pdfa1b_force' option, the software 
-  * will show you any problems it encountered while attempting to create a PDF/A-1b PDF document. 
+  * We've added the configuration options 'pdfa1b'. 
   *
-  * 'pdfa1b_force' will tell the software to automatically correct any problems it encounters. In most cases, setting both options to true will be fine. 
-  *
-  * Issues not fixed automatically with 'pdfa1b_force':
+  * The software will automatically make appropriate changes to your document to ensure it generates a valid PDF/A-1b document however the following items cannot be automatically fixed and are disallowed:
   *
   * 1. Watermarks - text or image - are not permitted (transparency is disallowed so will make text unreadable)  
   * 2. PNG images with alpha channel transparency ('masks' not allowed)
   * 3. Encryption is enabled (the system will automatically remove any security settings)
   *
-  * For more details about generating a PDF/A-1b document see http://mpdf1.com/manual/index.php?tid=420&searchstring=pdf/a1-b
-  * 
   */  
  
    /*$gf_pdf_config[] = array(
     'form_id' => 1, 
     'template' => 'example-template.php',
     'pdfa1b' => true,
-    'pdfa1b_force' => true,  
    );*/    
 
   /*
@@ -352,12 +346,9 @@
   * Important: The software is not guaranteed to produce fully PDF/A1-b compliant files in all circumstances. It is the users responsibility to check compliance if this is essential.
   *
   * Usage:
-  * We've added two new configuration options 'pdfx1a' and 'pdfx1a_force'. If you just set 'pdfx1a' => true and don't add the 'pdfx1a_force' option, the software 
-  * will show you any problems it encountered while attempting to create a PDF/X-1a PDF document. 
+  * We've added a new configuration options: 'pdfx1a' to turn documents into PDF/X-1a format. 
   *
-  * 'pdfx1a_force' will tell the software to automatically correct any problems it encounters. In most cases, setting both options to true will be fine. 
-  *
-  * Issues not fixed automatically with 'pdfx1a_force':
+  * The software will automatically make appropriate changes to your document to ensure it generates a valid PDF/X-1a document however the following items cannot be automatically fixed and are disallowed:
   *
   * 1. Watermarks - text or image - are not permitted (transparency is disallowed so will make text unreadable)  
   * 2. PNG images with alpha channel transparency ('masks' not allowed)
@@ -370,8 +361,7 @@
    /*$gf_pdf_config[] = array(
     'form_id' => 1, 
     'template' => 'example-template.php',
-    'pdfx1a' => true,
-    'pdfx1a_force' => true,  
+    'pdfx1a' => true,    
    );*/    
 
 
