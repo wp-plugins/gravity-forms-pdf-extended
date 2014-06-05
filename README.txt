@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 3.4.1
+Stable tag: 3.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,8 @@ Along with the above, the PDF software includes powerful feature such as:
 3. GD Library
 4. RAM:	Recommended: 128MB. Minimum: 64MB.
 
+*Note:* We've had clients report slow PDF generation times and problems meeting the RAM requirements on cheap shared web hosting. If you experience these problems [we recommend you look into WP Engine's managed hosting platform](http://www.shareasale.com/r.cfm?u=955815&m=41388&b=394686) as our software works correctly out of the box.
+
 **Software Requirements**
 
 1. [Purchase and install Gravity Forms](https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=235154)
@@ -77,6 +79,25 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 2. View or download the PDF from a Gravity Forms entry.
 
 == Changelog ==
+
+= 3.5.0 =
+* Feature - No longer need to reinitialise every time the software is updated. 
+* Feature - Add auto-initialiser on initial installation for sites that have direct write access to their server files
+* Feature - Add auto-initialiser on initial installation across entire multisite network for sites who have direct write access to their server files. 
+* Feature - Add auto-PDF_EXTENDED_TEMPLATE theme syncer for sites that have direct write access to their server files
+* Feature - Correctly added language support. The .PO file is located in the /language/ folder if anyone would like to do a translation.
+
+* Housekeeping - Restrict initialisation process to 64MB or greater to counter problems with users reporting a 'white screen' when running in a low-RAM environment.
+* Housekeeping - Refractor the admin notices code
+* Housekeeping - Create responsive PDF settings page
+* Housekeeping - Minify CSS and Javascript files 
+* Housekeeping - Remove FontAwesome fonts from package and use Wordpress' build-in 'dashicons'
+* Housekeeping - Refine action and error messages 
+* Housekeeping - Update initialisation tab copy for both pre- and post- initialisation
+* Housekeeping - Use Gravity Forms get_ip() function instead of custom function
+* Housekeeping - The in-built support form uses SSL once again (disabled in the past due to some servers being unable to verify the certificate). 
+
+* Bug - When testing write permissions, file_exist() is throwing false positives for some users which would generate a warning when unlink() is called. Hide warning using '@'.
 
 = 3.4.1 =
 * Bug - Fix typo that effected sites running PHP5.2 or below. 
