@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 3.5.2
+Stable tag: 3.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,10 +75,17 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 
 == Screenshots ==
 
-1. View PDF from the Gravity Forms entries list.
-2. View or download the PDF from a Gravity Forms entry.
+1. The View PDF button is avaliable for each Gravity Form entry
+2. Multiple PDFs can be assigned to a form and is also avaliable on the detailed entry view.
+3. The configuration.php file allows you to easily assign PDFs to Gravity Forms
 
 == Changelog ==
+
+= 3.5.3 =
+* Bug - Mergetags braces ({}) were being encoded before conversion
+* Bug - Fixed issue with empty string being passed to array filter
+* Housekeeping - Enabled mergetag usage in the pdf_password and pdf_master_password configuration options 
+* Housekeeping - Correctly call $wpdb->prepare so the variables in are in the second argument
 
 = 3.5.2 =
 * Bug - Initialisation folder .htaccess file was preventing template.css from being loaded by the default templates.
