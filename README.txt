@@ -75,8 +75,9 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 
 == Screenshots ==
 
-1. View PDF from the Gravity Forms entries list.
-2. View or download the PDF from a Gravity Forms entry.
+1. The View PDF button is avaliable for each Gravity Form entry
+2. Multiple PDFs can be assigned to a form and is also avaliable on the detailed entry view.
+3. The configuration.php file allows you to easily assign PDFs to Gravity Forms
 
 == Changelog ==
 
