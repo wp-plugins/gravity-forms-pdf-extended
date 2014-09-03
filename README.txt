@@ -4,7 +4,7 @@ Donate link: http://www.gravityformspdfextended.com
 Tags: gravity, forms, pdf, automation, attachment
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 3.5.3
+Stable tag: 3.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,11 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 3. The configuration.php file allows you to easily assign PDFs to Gravity Forms
 
 == Changelog ==
+
+= 3.5.4 =
+* Bug - Fixed issue with incorrect PDF name showing on the entry details page
+* Bug - Fixed issue with custom fonts being inaccessible without manually reinstalling after upgrading. 
+* Housekeeping - Added in two new filters to modify the $mpdf object. 'gfpdfe_mpdf_class' and 'gfpdfe_mpdf_class_pre_render' (replaces the gfpdfe_pre_render_pdf filter).
 
 = 3.5.3 =
 * Bug - Mergetags braces ({}) were being encoded before conversion
