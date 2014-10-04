@@ -48,7 +48,7 @@ Along with the above, the PDF software includes powerful feature such as:
 3. GD Library
 4. RAM:	Recommended: 128MB. Minimum: 64MB.
 
-*Note:* We've had clients report slow PDF generation times and problems meeting the RAM requirements on cheap shared web hosting. If you experience these problems [we recommend you look into WP Engine's managed hosting platform](http://www.shareasale.com/r.cfm?B=398776&U=955815&M=41388&urllink=) as our software works correctly out of the box.
+*Note:* We've had clients report slow PDF generation times and problems meeting the RAM requirements on cheap shared web hosting. If you experience these problems [we recommend you look into WP Engine's managed hosting platform](http://www.shareasale.com/r.cfm?B=398782&U=955815&M=41388&urllink=) as our software works correctly out of the box.
 
 **Software Requirements**
 
