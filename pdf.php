@@ -220,7 +220,7 @@ class GFPDF_Core extends PDFGenerator
 		if($gfpdfe_data->can_write_output_dir === true)
 		{
 			add_action('gform_after_submission', array('GFPDF_Core_Model', 'gfpdfe_save_pdf'), 10, 2);
-			add_filter('gform_notification', array('GFPDF_Core_Model', 'gfpdfe_create_and_attach_pdf'), 10, 3);  	  		  
+			add_filter('gform_notification', array('GFPDF_Core_Model', 'gfpdfe_create_and_attach_pdf'), 100, 3);  /* ensure it's called later than standard so the attachment array isn't overridden */	  		  
 		}
 		
 	}

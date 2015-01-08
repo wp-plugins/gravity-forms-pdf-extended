@@ -209,7 +209,7 @@ class PDFRender
 		 if($arguments['security'] === true && $arguments['pdfa1b'] === false && $arguments['pdfx1a'] === false  )
 		 {
 				$password = (strlen($arguments['pdf_password']) > 0) ? $arguments['pdf_password'] : '';
-				$master_password = (strlen($arguments['pdf_password']) > 0) ? $arguments['pdf_password'] : null;
+				$master_password = (strlen($arguments['pdf_master_password']) > 0) ? $arguments['pdf_master_password'] : null;
 				$pdf_privileges = (is_array($arguments['pdf_privileges'])) ? $arguments['pdf_privileges'] : array();	
 				
 				$mpdf->SetProtection($pdf_privileges, $password, $master_password, 128);											

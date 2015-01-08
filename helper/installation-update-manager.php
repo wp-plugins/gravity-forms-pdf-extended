@@ -293,7 +293,7 @@ class GFPDF_InstallUpdater
 	public function gf_pdf_font_install_success()
 	{
 		echo '<div id="message" class="updated"><p>';
-		echo __('The font files have been successfully installed. A font can be used by adding it\'s file name (without .ttf and in lower case) in a CSS font-family declaration.', 'pdfextended');
+		echo __('The font files have been successfully installed. A font can be used by adding its file name (without .ttf and in lower case) in a CSS font-family declaration.', 'pdfextended');
 		echo '</p></div>';
 	}	
 

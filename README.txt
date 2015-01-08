@@ -86,13 +86,15 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 * Feature - Allow MERGETAGS to be used in all PDF template, including default template but only in the HTML field.
 * Feature - Updated mPDF to 3.7.1
 * Feature - Enable text/image watermark support. Added new example template example-watermark09.php showing off its usage
-* Feature - Added Quiz support to $form_data array
+* Feature - Added Quiz support to $form_data array (see $form_data['quiz_config'] and $form_data['quiz_results'])
+* Feature - Added Survey support to $form_data array ()
 * Feature - Shortcodes will now be processed in all templates, including default template but only in the HTML field. 
 * Feature - Added 'save' configuration option so PDFs are saved to the local disk when 'notifications' aren't enabled
 * Feature - Added 'dpi' configuration option to modify the PDF image DPI. Default 96dpi. Use 300dpi for printing.
 * Feature - Added PDF/A1-b compliance option. Enable with 'pdfa1b' => true. See http://mpdf1.com/manual/index.php?tid=420&searchstring=pdf/a1-b for more details.
 * Feature - Added PDF/X1-a compliance option. Enable with 'pdfx1a' => true. See http://mpdf1.com/manual/index.php?tid=481&searchstring=pdf/x-1a for more details.
 * Feature - Added new constant option 'PDF_REPACK_FONT' which when enabled may improve function with some PostScript printers (disabled by default)
+* Feature - Added new filters to PDF configuration
 
 * Housekeeping - Modified mPDF functions Image() and purify_utf8_text() to validate the input data so we don't have to do it every time through the template.
 * Housekeeping - Added ability to not re-deploy every update (not enabled this release as template files were all updated)</li>
@@ -103,6 +105,12 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 * Housekeeping - Center aligned Survey Likery field results
 * Housekeeping - Partially refactored the pdf-entry-detail.php code
 * Housekeeping - All default and example templates have been tidied. This won't affect custom templates.
+* Housekeeping - Set the gform_notification order number to 100 which will prevent other functions (example snippets from Gravity Forms, for instance) from overridding the attached PDF.
+* Housekeeping - Fix spelling mistake on initialising fonts
+* Housekeeping - Remove wpautop() function from Gravity Form HTML output, which was applied before rendering and was messing up the HTML markup.
+* Housekeeping - Remove empty list rows from the $form_data['list'] array in single and multi-column lists.
+* Housekeeping - Apply same CSS styles (padding, border and line height) to HTML fields as done to form values in default templates
+* Housekeeping - Replaced arbitrary wrapper IDs in the default templates with the actual field ID
 
 * Bug - Fixed issue with PDF not attaching to notification using Paypal's delayed notification feature
 * Bug - Fixed strict standard warning about calling GFPDF_Settings::settings_page();
@@ -112,6 +120,7 @@ All FAQs can be [viewed on the Gravity Forms PDF Extended website](http://gravit
 * Bug - Do additional check for PHP's MB_String regex functions before initialising
 * Bug - Fixed problem with multiple nodes assigned to a form using the same template
 * Bug - Fixed path to fallback templates when not found
+* Bug - Fixed problem with master password setting to user password
 
 = 3.3.4 =
 * Bug - Fixed issue linking to PDF from front end 

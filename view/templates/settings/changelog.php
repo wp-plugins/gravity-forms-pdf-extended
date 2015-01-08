@@ -22,7 +22,7 @@
     
     <h3>3.4.0</h3>
     <ul>
-        <li>Feature - Added auto-print prompt ability when you add &amp;print=1 to the PDF URL</li>
+    <li>Feature - Added auto-print prompt ability when you add &amp;print=1 to the PDF URL</li>
     <li>Feature - Added ability to rotate absolute positioned text 180 degrees (previously only 90 and -90). Note: feature in beta</li>
     <li>Feature - Backup all template files that are overridden when initialising to a folder inside PDF_EXTENDED_TEMPLATE</li>
     <li>Feature - Added SSH initialisation support</li>
@@ -46,6 +46,8 @@
     <li>Housekeeping - Center aligned Survey Likery field results</li>
     <li>Housekeeping - Partially refactored the pdf-entry-detail.php code</li>
     <li>Housekeeping - All default and example templates have been tidied. This won't affect custom templates.</li>
+    <li>Housekeeping - Set the gform_notification order number to 100 which will prevent other functions (example snippets from Gravity Forms, for instance) from overridding the attached PDF.</li>
+    <li>Housekeeping - Fix spelling mistake on initialising fonts</li>
 
     <li>Bug - Fixed issue with PDF not attaching to notification using Paypal's delayed notification feature</li>
     <li>Bug - Fixed strict standard warning about calling GFPDF_Settings::settings_page();</li>

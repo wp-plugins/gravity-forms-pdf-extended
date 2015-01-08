@@ -52,12 +52,12 @@ if(!class_exists('GFPDFEntryDetail'))
 								 */
 								 if($return === true)
 								 {
-									$results['field'][] = '<h2 id="field-'. $count.'" class="default entry-view-page-break">'. $form['pagination']['pages'][$page_number] .'</h2>';
+									$results['field'][] = '<h2 id="field-'. $field['id'].'" class="default entry-view-page-break">'. $form['pagination']['pages'][$page_number] .'</h2>';
 								 }
 								 else
 								 {
 								?>
-                                	<h2 id='field-<?php echo $count; ?>' class='default entry-view-page-break'><?php echo $form['pagination']['pages'][$page_number]; ?></h2>
+                                	<h2 id='field-<?php echo $field['id']; ?>' class='default entry-view-page-break'><?php echo $form['pagination']['pages'][$page_number]; ?></h2>
                                 <?php
 								 }
 								/*
@@ -68,6 +68,7 @@ if(!class_exists('GFPDFEntryDetail'))
 						 }
 
 						$even = $odd = '';
+
 						switch(RGFormsModel::get_input_type($field)){
 						   case 'section' :
 
@@ -76,12 +77,12 @@ if(!class_exists('GFPDFEntryDetail'))
 
 									if($return === true)
 									{
-										$results['field'][] = '<h2 id="field-'.$count.'" class="default entry-view-section-break">'. esc_html(GFCommon::get_label($field)) .'</h2>';
+										$results['field'][] = '<h2 id="field-'.$field['id'].'" class="default entry-view-section-break">'. esc_html(GFCommon::get_label($field)) .'</h2>';
 									}
 									else
 									{
 									?>
-										<h2 id="field-<?php echo $count; ?>" class="default entry-view-section-break"><?php echo esc_html(GFCommon::get_label($field))?></h2>
+										<h2 id="field-<?php echo $field['id']; ?>" class="default entry-view-section-break"><?php echo esc_html(GFCommon::get_label($field))?></h2>
 									<?php
 									}
 								}
@@ -101,9 +102,9 @@ if(!class_exists('GFPDFEntryDetail'))
 									$last_row = $is_last ? ' lastrow' : '';
 									$even = ($count%2) ? ' odd' : ' even';
 
-									$display_value = wpautop($field['content']);
+									$display_value = $field['content'];
 
-									$content = '<div id="field-'.$count.'" class="entry-view-html-value' . $last_row . $even . '"><div class="value">' . $display_value . '</div></div>';
+									$content = '<div id="field-'. $field['id'] .'" class="entry-view-html-value' . $last_row . $even . '"><div class="value">' . $display_value . '</div></div>';
 									$content = apply_filters('gform_field_content', $content, $field, $value, $lead['id'], $form['id']);
 
 									if($return === true)
@@ -126,7 +127,7 @@ if(!class_exists('GFPDFEntryDetail'))
 
 								if(strlen($value) > 0 && (file_exists($server_folder.$value)) && (is_dir($server_folder.$value) !== true) )
 								{
-									 $content = '<div id="field-'.$count.'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div> <div class="value">' . $display_value . '</div></div>	';
+									 $content = '<div id="field-'. $field['id'] .'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div> <div class="value">' . $display_value . '</div></div>	';
 
 									if($return === true)
 									{
@@ -141,11 +142,11 @@ if(!class_exists('GFPDFEntryDetail'))
 								{
 									if($return === true)
 									{
-										$results['field'][] = '<div id="field-'.$count.'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div></div>';
+										$results['field'][] = '<div id="field-'. $field['id'] .'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div></div>';
 									}
 									else
 									{
-										print '<div id="field-'.$count.'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div></div>';
+										print '<div id="field-'. $field['id'] .'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div></div>';
 									}
 
 								}
@@ -173,7 +174,7 @@ if(!class_exists('GFPDFEntryDetail'))
 
 									$display_value =  empty($display_value) && $display_value !== '0' ? '&nbsp;' : $display_value;
 
-									$content = '<div id="field-'.$count.'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div> <div class="value">' . $display_value . '</div></div>';
+									$content = '<div id="field-'. $field['id'] .'" class="entry-view-field-value' . $last_row . $even . '"><div class="strong">' .  esc_html(GFCommon::get_label($field)) . '</div> <div class="value">' . $display_value . '</div></div>';
 
 									$content = apply_filters('gform_field_content', $content, $field, $value, $lead['id'], $form['id']);
 
@@ -328,7 +329,7 @@ if(!class_exists('GFPDFEntryDetail'))
 
 			$has_product_fields = false;
 
-					foreach($form['fields'] as $field){
+					foreach($form['fields'] as $field) {
 
 						switch(RGFormsModel::get_input_type($field)){
 							case 'section' :
@@ -358,8 +359,23 @@ if(!class_exists('GFPDFEntryDetail'))
 							case 'select':
 							case 'multiselect':
 							case 'radio':
-								 /* store values in regular [field] array */
-								 $form_array = self::get_the_list($lead, $field, $form_array);
+								if($field['type'] == 'quiz')
+								{
+									$form_array = self::get_quiz_radios($form, $lead, $field, $form_array);									
+								}
+								else
+								{
+								 	/* store values in regular [field] array */
+								 	$form_array = self::get_the_list($lead, $field, $form_array);
+								}
+							break;
+
+							case 'likert':
+								$form_array['survey']['likert'][$field['id']] = self::get_the_likert($form, $lead, $field, $form_array);
+							break;
+
+							case 'rank':								
+								$form_array['survey']['rank'][$field['id']] = self::get_the_rank($form, $lead, $field, $form_array);
 							break;
 
 							default:
@@ -379,6 +395,114 @@ if(!class_exists('GFPDFEntryDetail'))
 					$form_array = self::get_product_array($form, $lead, $has_product_fields, $form_array);
 
 			return $form_array;
+		}
+
+		private static function get_quiz_radios($form, $lead, $field, $form_array)
+		{
+			$id = $field['id'];
+			$results = $lead[$id];
+			$return = array();
+
+			foreach($field['choices'] as $choice)
+			{
+				if(trim($choice['value']) == trim($results))
+				{
+					$return[] = array('text' => $choice['text'], 'isCorrect' => $choice['gquizIsCorrect']);
+					break;
+				}
+			}
+
+			/* add data to field tag correctly */
+			$form_array['field'][$field['id'].'.'.$field['label'].'_name'] = $return;
+
+			/* add ID incase want to use template on multiple duplicate forms with different field names */
+			$form_array['field'][$field['id']] = $return;
+
+			/* keep backwards compatibility */
+			$form_array['field'][$field['label']] = $return;
+
+			return $form_array;
+	
+		}		
+
+		private static function get_the_rank($form, $lead, $field, $form_array)
+		{
+			$id = $field['id'];
+			$results = explode(',', $lead[$id]);
+			$return = array();
+
+			foreach($results as $rank)
+			{
+				foreach($field['choices'] as $choice)
+				{
+					if(trim($choice['value']) == trim($rank))
+					{
+						$return[] = $choice['text'];
+						break;
+					}
+				}
+			}
+
+			return $return;			
+		}
+
+		private static function get_the_likert($form, $lead, $field, $form_array)
+		{
+			$id 		   = $field['id'];
+			$results       = $lead[$id];
+			$multiple_rows = rgar($field, "gsurveyLikertEnableMultipleRows") ? true : false;		
+			$likert = array();
+
+			/* store the column names */
+			foreach($field['choices'] as $col)
+			{
+				$likert['col'][$col['value']] = $col['text'];
+			}
+
+			
+			if(sizeof($field['inputs']) > 0)
+			{
+				/* do our multi-row likert */
+				foreach($field['inputs'] as $row)
+				{
+					/* pad the array with the number of columns */
+
+					foreach($likert['col'] as $col_id => $text)
+					{		
+						/* 
+						 * Results for multi row is stored with ID.ROW# (eg $lead['1.2']) 
+						 * The number is stored in $row['id']
+						 */							
+						$results = $lead[$row['id']];
+
+						/* user data in the $lead comes in as ROW ID:COL ID */
+						$comparison = $row['name'] . ':' . $col_id;
+
+						/* do our comparison and update the output */
+						$output = ($comparison == $results) ? 'selected' : '';										
+
+						/* assign our results to the array */
+						$likert['rows'][$row['label']][] = $output;
+
+					}
+				}
+			}
+			else
+			{
+				/* do our single row likert */
+				foreach($likert['col'] as $col_id => $text)
+				{
+					/* single row data comes in with col value */
+					/* do our comparison and update the output */
+					$output = ($col_id == $results) ? 'selected' : '';										
+
+					$likert['row'][] = $output;
+
+				}									
+			}
+
+			return $likert;
+
 		}
 
 		private static function set_form_array_common($form, $lead, $form_id)
@@ -428,29 +552,133 @@ if(!class_exists('GFPDFEntryDetail'))
 			/*
 			 * Add quiz results
 			 */
-			$form_array = self::get_quiz_results($form, $form_array);
+			$form_array = self::get_quiz_results($form, $form_array, $lead);
+			$form_array = self::get_survey_results($form, $form_array, $lead);
+			$form_array = self::get_poll_results($form, $form_array, $lead);
 
 			return $form_array;
 		}
 
-		private static function get_quiz_results($form, $form_array)
+		/* check if there is a poll field in the form */
+		private static function is_poll($form)
+		{					
+			foreach($form['fields'] as $field)
+			{
+				if($field['type'] == 'poll')
+				{
+					return true;
+				}
+			}			
+			return false;
+		}
+
+		private static function get_poll_results($form, $form_array, $lead)
 		{
+			if(self::is_poll($form))
+			{
+				$form_array['poll'] = self::get_addon_global_data($form, array());
+			}
+
+			return $form_array;
+		}
+
+		private static function get_survey_results($form, $form_array, $lead)
+		{
+			 /*
+			  * If there are any survey results
+			  * add them to the 'survey' key
+			  */
+			$fields            = GFCommon::get_fields_by_type($form, array('survey'));
+	        $count_survey_fields = count($fields);
+
+	        if ($count_survey_fields > 0)
+	        {
+	        	$form_array['survey']['score'] = $lead['gsurvey_score'];
+	        }
+
+	        return $form_array;
+
+		}
+
+		private static function get_quiz_results($form, $form_array, $lead)
+		{
+
 			 /*
 			  * If there are any quiz results
 			  * add them to the 'quiz' key
 			  */
 			$fields            = GFCommon::get_fields_by_type($form, array('quiz'));
 	        $count_quiz_fields = count($fields);
+
 	        if ($count_quiz_fields > 0)
 	        {
-				$form_array['quiz']['grading'] = $form['gquizGrading'];
-				$form_array['quiz']['score']   = rgar($lead, 'gquiz_score');
-				$form_array['quiz']['percent'] = rgar($lead, 'gquiz_percent');
-				$form_array['quiz']['is_pass'] = rgar($lead, 'gquiz_is_pass');
-				$form_array['quiz']['grade']   = rgar($lead, 'gquiz_grade');
+				$form_array['quiz']['config']['grading']     = $form['gravityformsquiz']['grading'];
+				$form_array['quiz']['config']['passPercent'] = $form['gravityformsquiz']['passPercent'];
+				$form_array['quiz']['config']['grades']      = json_decode($form['gravityformsquiz']['grades']);
+				
+				$form_array['quiz']['results']['score']      = rgar($lead, 'gquiz_score');
+				$form_array['quiz']['results']['percent']    = rgar($lead, 'gquiz_percent');
+				$form_array['quiz']['results']['is_pass']    = rgar($lead, 'gquiz_is_pass');
+				$form_array['quiz']['results']['grade']      = rgar($lead, 'gquiz_grade');
+
+				/*
+				 * Get the overall results
+				 */
+				$form_array['quiz']['global'] = self::get_quiz_overalls($form);
+				
 	        }
 
 	        return $form_array;
+		}
+
+		private static function get_addon_global_data($form, $options)
+		{
+				/* if the results class isn't loaded, load it */
+				if (!class_exists("GFResults"))
+				{
+				    require_once(GFCommon::get_base_path() . "/includes/addon/class-gf-results.php");
+				}
+
+				$fields = $form["fields"];
+	            
+	            /* initiat the results class */
+				$gf_results = new GFResults('', $options);				
+				
+				/* ensure that only active leads are queried */
+				$search = array(
+					'field_filters' => array('mode' => ''),
+					'status'        => 'active'
+				);			
+
+				/* get the quiz results */
+				$data = $gf_results->get_results_data($form, $fields, $search);	
+
+				/* unset some array keys we don't need */
+				unset($data['status']);
+				unset($data['timestamp']);
+
+				return $data;
+
+		}
+
+		private static function get_quiz_overalls($form)
+		{
+			/* we need to tap into functions GF Quiz has so only run if it is active */
+			if(class_exists('GFQuiz'))
+			{
+				/* GFQuiz is a singleton. Get the instance */
+				$quiz   = GFQuiz::get_instance();
+
+	            /* create our callback to add additional data to the array specific to the quiz plugin */
+	            $options['callbacks']['calculation'] = array(
+	            		$quiz, 
+	            		'results_calculation'
+	            );
+
+				return self::get_addon_global_data($form, $options);		
+			}
+
+			return array(__('Activate Gravity Forms Quiz Add On to see global quiz statistics for this form', 'pdfextended'));
 		}
 
 		private static function get_html($field, $form_array)
@@ -509,10 +737,62 @@ if(!class_exists('GFPDFEntryDetail'))
 
 		private static function get_default_list($lead, $field, $form_array)
 		{
-			$value = unserialize(RGFormsModel::get_lead_field_value($lead, $field));
+			$value = self::remove_empty_list_rows(unserialize(RGFormsModel::get_lead_field_value($lead, $field)));
 			$form_array['list'][$field['id']] = $value;
 
 			return $form_array;
+		}
+
+		private static function remove_empty_list_rows($list)
+		{
+			/*
+			 * Check if there are any values in the list 
+			 */
+			if(sizeof($list) == 0)
+			{
+				return $list;
+			}
+
+
+			/*
+			 * Check if it's a multi column list
+			 */
+			if(!is_array($list[0]))
+			{
+				$list = array_filter($list);
+			}
+			else
+			{
+				$list = self::remove_empty_multi_col_list($list);
+			}
+
+			return $list;
+		}
+
+		private static function remove_empty_multi_col_list($gfield_list)
+		{
+			foreach($list as $id => $row)			
+			{
+
+				$empty = true;
+				foreach($row as &$col)
+				{
+					/* check if there is data and if so break the loop */
+					if(trim(strlen($col) > 0))
+					{
+						$empty = false;
+						break;
+					}
+				}
+
+				/* remove row from list */
+				if($empty)
+				{	
+					unset($list[$id]);
+				}				
+			}	
+			
+			return $list;		
 		}
 
 		private static function get_the_list($lead, $field, $form_array)
