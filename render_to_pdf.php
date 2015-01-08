@@ -115,6 +115,7 @@ if (!function_exists('GetRequire')) {
 		 */
 		$xpath = new DOMXPath($DOM);
 		$nlist = $xpath->query("//div[@id='print_preview_hdr']"); 
+		/* FIX THIS - OBJECT PASSED... */
 		if(strlen($nlist->item(0)) > 0)
 		{
 			$node = $nlist->item(0);
